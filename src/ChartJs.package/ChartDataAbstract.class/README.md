@@ -1,0 +1,1 @@
+I am the abstract class for chart data; defining the charttype to represent me, title and style

@@ -4,9 +4,10 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "",
+	"commentStamp" : "<historical>",
 	"instvars" : [
-		"selectedNode" ],
+		"selectedNode",
+		"selectedValue" ],
 	"name" : "ChartsDemos",
 	"pools" : [
 		 ],

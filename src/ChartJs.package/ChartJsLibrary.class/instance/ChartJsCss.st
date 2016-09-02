@@ -20,7 +20,7 @@ ChartJsCss
 	text-align: center;
 } 
 
-.radar-legend li, .bar-legend li, .line-legend li {
+.radar-legend li, .bar-legend li, .line-legend li, .boxplot-legend li {
   display: block;
   padding-left: 30px;
   position: relative;
@@ -37,7 +37,7 @@ ChartJsCss
   border-radius: 5px;
 }
 
-.bar-legend li span {
+.bar-legend li span, .boxplot-legend li span {
   display: block;
   position: absolute;
   left: 0;

@@ -1,3 +1,3 @@
-points
+chartType
 chartType
 	^ self styleSheet chartType

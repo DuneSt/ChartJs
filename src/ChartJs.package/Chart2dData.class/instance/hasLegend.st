@@ -1,3 +1,3 @@
-as yet unclassified
+testing
 hasLegend
 	^ self dataSets anySatisfy: #hasName

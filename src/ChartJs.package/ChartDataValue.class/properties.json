@@ -6,9 +6,10 @@
 		 ],
 	"commentStamp" : "<historical>",
 	"instvars" : [
-		"scale",
-		"visible" ],
-	"name" : "ChartAxisOptions",
+		"value",
+		"styleSheet",
+		"name" ],
+	"name" : "ChartDataValue",
 	"pools" : [
 		 ],
 	"super" : "Object",

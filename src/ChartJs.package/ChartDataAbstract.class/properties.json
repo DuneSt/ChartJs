@@ -4,11 +4,11 @@
 		 ],
 	"classvars" : [
 		 ],
-	"commentStamp" : "<historical>",
+	"commentStamp" : "GuillaumeLarcheveque 2/10/2016 11:16",
 	"instvars" : [
-		"scale",
-		"visible" ],
-	"name" : "ChartAxisOptions",
+		"styleSheet",
+		"title" ],
+	"name" : "ChartDataAbstract",
 	"pools" : [
 		 ],
 	"super" : "Object",
