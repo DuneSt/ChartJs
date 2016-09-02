@@ -8,7 +8,9 @@
 	"instvars" : [
 		"styleSheet",
 		"title",
-		"valueDisplayBlock" ],
+		"valueDisplayBlock",
+		"singleValueTooltip",
+		"multiValueTooltip" ],
 	"name" : "ChartDataAbstract",
 	"pools" : [
 		 ],
