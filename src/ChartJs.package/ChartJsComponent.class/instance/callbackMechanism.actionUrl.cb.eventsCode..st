@@ -1,4 +1,4 @@
-as yet unclassified
+callback
 callbackMechanism: canvasId actionUrl: anUrl cb: cb eventsCode: eventsCode
 	^ 'document.getElementById("graph',canvasId, '").onclick = function(evt){
 	//add 1 because Pharo start at 1 and Js at 0

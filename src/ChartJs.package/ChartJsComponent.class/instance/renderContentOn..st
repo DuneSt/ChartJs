@@ -1,4 +1,4 @@
-as yet unclassified
+rendering
 renderContentOn: html
 	| divId canvas cb |
 	divId := html nextId.
@@ -9,14 +9,16 @@ renderContentOn: html
 					canvas := html canvas
 						id: #graph , divId;
 						class: #chartJsGraph.
-					cb := canvas storeCallback: (WAValuesCallback on: [ :node | self value value: node ] values: self data).
-					html
-						script:
-							(self
-								callbackMechanism: divId
-								actionUrl: html actionUrl asString
-								cb: cb
-								eventsCode: self data chartType eventsCode).
+					self hasCallBack
+						ifTrue: [ 
+							cb := canvas storeCallback: (WAValuesCallback on: [ :node | self value value: node ] values: self data).
+							html
+								script:
+									(self
+										callbackMechanism: divId
+										actionUrl: html actionUrl asString
+										cb: cb
+										eventsCode: self data chartType eventsCode) ].
 					self data hasLegend
 						ifTrue: [ 
 							html div
