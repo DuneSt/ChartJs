@@ -20,7 +20,7 @@ ChartJsCss
 	text-align: center;
 } 
 
-.radar-legend li, .bar-legend li, .line-legend li, .boxplot-legend li {
+.radar-legend li, .bar-legend li, .line-legend li, .boxplot-legend li, .pie-legend li, .doughnut-legend li, .polararea-legend li {
   display: block;
   padding-left: 30px;
   position: relative;
@@ -37,7 +37,7 @@ ChartJsCss
   border-radius: 5px;
 }
 
-.bar-legend li span, .boxplot-legend li span {
+.bar-legend li span, .boxplot-legend li span, .pie-legend li span, .doughnut-legend li span, .polararea-legend li span {
   display: block;
   position: absolute;
   left: 0;
