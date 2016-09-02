@@ -1,6 +1,6 @@
 rendering
 renderContentOn: html
-	| divId canvas cb |
+	| divId canvas |
 	divId := html nextId.
 	html div
 		class: #chartJsChart;
@@ -9,50 +9,19 @@ renderContentOn: html
 					canvas := html canvas
 						id: #graph , divId;
 						class: #chartJsGraph.
-					self hasCallBack
-						ifTrue: [ 
-							cb := canvas storeCallback: (WAValuesCallback on: [ :node | self value value: node ] values: self data).
-							html
-								script:
-									(self
-										callbackMechanism: divId
-										actionUrl: html actionUrl asString
-										cb: cb
-										eventsCode: self data chartType eventsCode) ].
-					self data hasLegend
-						ifTrue: [ 
-							html div
-								id: #legend , divId;
-								class: #chartJsLegend ].
+					self manageCallBackIn: html canvas: canvas inDiv: divId.
+					self createIfNecessaryLegend: html inDiv: divId.
 					html
 						script:
 							(String
 								streamContents: [ :s | 
-									s nextPutAll: 'var myChart'.
-									s nextPutAll: divId.
-									s
-										nextPutAll: ' = new Chart(document.getElementById("';
-										nextPutAll: #graph , divId;
-										nextPutAll: '").getContext("2d")).';
-										nextPutAll: self data chartType forChartJS;
-										nextPutAll: '('.
-									(NeoJSONWriter on: s)
-										nextPut: self data;
-										close.
-									s
-										nextPutAll: ', '.
-										(NeoJSONWriter on: s)
-										nextPut:  self options;
-										close.
-										s nextPutAll: ');'.
-									self data hasLegend
-										ifTrue: [ 
-											s
-												nextPutAll: 'document.getElementById("';
-												nextPutAll: #legend , divId;
-												nextPutAll: '").innerHTML=myChart';
-												nextPutAll: divId;
-												nextPutAll: '.generateLegend();' ] ]).
+									self printDiagramCreationOn: s inDiv: divId.
+									s nextPutAll: '('.
+									self printDataOn: s.
+									s nextPutAll: ', '.
+									self printOptionsOn: s inHtml: html canvas: canvas.
+									s nextPutAll: ');'.
+									self printLegendOn: s forDiv: divId ]).
 					self data hasTitle
 						ifTrue: [ 
 							html div

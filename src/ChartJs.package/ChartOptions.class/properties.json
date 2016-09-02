@@ -7,7 +7,8 @@
 	"commentStamp" : "<historical>",
 	"instvars" : [
 		"xAxis",
-		"yAxis" ],
+		"yAxis",
+		"toolTip" ],
 	"name" : "ChartOptions",
 	"pools" : [
 		 ],

@@ -1,3 +1,3 @@
 accessing
 options
-	^ options ifNil: [ {  } ]
+	^ options ifNil: [ ChartOptions new ]
