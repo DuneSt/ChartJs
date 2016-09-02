@@ -11,7 +11,8 @@ callbackMechanism: canvasId actionUrl: anUrl cb: cb eventsCode: eventsCode
 				ifFalse: [ '.' ]) , self data chartType dataFunction , '.indexOf(myChart' , canvasId , '.' , eventsCode
 		,
 			'[0]);
+	if(activePointIndex!=0){
 	post( ''' , anUrl asString , ''', { "' , cb
 		,
 			'" : activePointIndex } );
-};'
+}};'
