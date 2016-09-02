@@ -1,3 +1,3 @@
 accessing
 selectorsToInclude
-	^ #(ChartminJs postJs)
+	^ #(ChartminJs postJs ChartJsCss)

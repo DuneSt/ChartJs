@@ -10,6 +10,7 @@ renderContentOn: html
 						actionUrl: html actionUrl asString
 						cb: cb
 						eventsCode: self data chartType eventsCode).
+	html div id: #legend,divId.
 	html
 		script:
 			(String
@@ -25,4 +26,10 @@ renderContentOn: html
 					(NeoJSONWriter on: s)
 						nextPut: self data;
 						close.
-					s nextPutAll: ', {});' ])
+					s nextPutAll: ', {});'.
+					
+					s nextPutAll: 'document.getElementById("';
+						nextPutAll: #legend,divId;
+						nextPutAll: '").innerHTML=myChart';
+						nextPutAll: divId;
+						nextPutAll: '.generateLegend();' ])

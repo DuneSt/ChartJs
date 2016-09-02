@@ -12,14 +12,14 @@ renderContentOn: html
 			'Cycling'.
 			'Running'}
 		multiYObjects:
-			{{65.
+			{'Guillaume' -> {65.
 			59.
 			90.
 			81.
 			56.
 			55.
 			40}.
-			{28.
+			'Cyril'-> {28.
 			48.
 			40.
 			19.

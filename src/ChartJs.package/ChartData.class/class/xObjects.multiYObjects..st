@@ -4,5 +4,5 @@ xObjects: aCollectionOfObjects multiYObjects: aCollectionOfSequenceableCollectio
 		xObjects: aCollectionOfObjects;
 		dataSets:
 				(aCollectionOfSequenceableCollectionOfObjectsToMap
-						collect: [ :aCollection | ChartDataSetSequence sequence: aCollection ]);
+						collect: [ :anAssociation | ChartDataSetSequence name: anAssociation key sequence: anAssociation value ]);
 		yourself
