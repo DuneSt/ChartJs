@@ -1,0 +1,14 @@
+{
+	"category" : "ConfigurationOfChartJs",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		"LastVersionLoad" ],
+	"commentStamp" : "",
+	"instvars" : [
+		"project" ],
+	"name" : "ConfigurationOfChartJs",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
