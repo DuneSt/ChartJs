@@ -15,6 +15,11 @@ baseline01: spec
 				spec
 					className: #ConfigurationOfStylesheet;
 					versionString: #'stable';
-					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ].
+					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ];
+			project: 'NeoJSON' with: [
+				spec
+					className: #ConfigurationOfNeoJSON;
+					versionString: #'stable';
+					repository: 'http://smalltalkhub.com/mc/SvenVanCaekenberghe/Neo/main/' ].
 		spec package: #ChartJs with: [
-				spec requires: #('Seaside3' 'Stylesheet' ). ]. ].
+				spec requires: #('Seaside3' 'Stylesheet' 'NeoJSON' ). ]. ].
