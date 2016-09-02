@@ -7,5 +7,5 @@ neoJsonOn: writer
 				ifTrue: [ 
 					jsonMapWriter
 						writeKey: #datasets
-						value: (self dataSets collect: [ :aDataSet | aDataSet neoJsonObjectFor: self xObjects ]) ]
+						value: (self dataSets collect: [ :aDataSet | aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ]) ]
 				ifFalse: [ self error: 'Not supported graph type' ] ]
