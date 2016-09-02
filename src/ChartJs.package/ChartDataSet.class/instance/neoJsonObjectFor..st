@@ -1,4 +1,4 @@
-as yet unclassified
+exchange
 neoJsonObjectFor: aCollectionOfXObjects
 	| dico |
 	dico := Dictionary new.

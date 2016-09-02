@@ -26,6 +26,7 @@ renderContentOn: html
 			96.
 			27.
 			100}}.
+	chartData title: [ :sets | 'Spent time for ', (sets collect: #name) asCommaStringAnd ].
 			
 	selectedNode ifNotNil: [ html heading level: 3; with: 'Selected node: ', selectedNode asString ].
 			

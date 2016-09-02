@@ -1,3 +1,3 @@
-as yet unclassified
+points
 chartType
 	^ self styleSheet chartType

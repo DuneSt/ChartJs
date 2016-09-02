@@ -1,10 +1,25 @@
 accessing
 ChartJsCss
-	^ '.radar-legend, .bar-legend, .line-legend  {
+	^ '.chartJsChart{
+  width: 40%;
+}
+	
+.chartJsLegend { 
+  float: right;
+  width: 20%;
   list-style: none;
   right: 8px;
   top: 0;
 }
+
+.chartJsGraph { 
+	width: 79%;
+}
+
+.chartJsTitle {
+	text-align: center;
+} 
+
 .radar-legend li, .bar-legend li, .line-legend li {
   display: block;
   padding-left: 30px;
