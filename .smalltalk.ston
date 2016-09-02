@@ -1,0 +1,9 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'ChartJs',
+      #directory : 'src',
+      #platforms : [ #pharo ]
+    }
+  ]
+}
