@@ -4,6 +4,7 @@ renderContentOn: html
 	divId := html nextId.
 	html div
 		class: #chartJsChart;
+		class: self data chartType name;
 		id: divId;
 		with: [ 
 					html div
