@@ -16,4 +16,5 @@ baseline01: spec
 					className: #ConfigurationOfStylesheet;
 					versionString: #'stable';
 					repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main/' ].
-		spec package: #ChartJs. ].
+		spec package: #ChartJs with: [
+				spec requires: #('Seaside3' 'Stylesheet' ). ]. ].
