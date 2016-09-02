@@ -6,10 +6,11 @@ renderContentOn: html
 		class: #chartJsChart;
 		id: divId;
 		with: [ 
-					canvas := html canvas
-						id: #graph , divId;
-						class: #chartJsGraph.
-					self manageCallBackIn: html canvas: canvas inDiv: divId.
+					html div
+						class: #chartJsGraph;
+						with: [ 
+									canvas := html canvas id: #graph , divId.
+									self manageCallBackIn: html canvas: canvas inDiv: divId ].
 					self createIfNecessaryLegend: html inDiv: divId.
 					html
 						script:
@@ -23,8 +24,4 @@ renderContentOn: html
 									s nextPutAll: ');'.
 									self printLegendOn: s forDiv: divId ]).
 					self data hasTitle
-						ifTrue: [ 
-							html div
-								id: #title , divId;
-								class: #chartJsTitle;
-								with: [ html text: self data title ] ] ]
+						ifTrue: [ self renderTitleId: divId on: html ] ]

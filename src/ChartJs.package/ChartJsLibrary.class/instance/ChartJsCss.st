@@ -2,18 +2,19 @@ accessing
 ChartJsCss
 	^ '.chartJsChart{
   width: 40%;
+	position:relative;
 }
 	
 .chartJsLegend { 
-  float: right;
-  width: 20%;
+  width: 30%;
   list-style: none;
   right: 8px;
   top: 0;
+	position: absolute;
 }
 
 .chartJsGraph { 
-	width: 79%;
+	width: 70%;
 }
 
 .chartJsTitle {
