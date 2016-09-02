@@ -1,0 +1,14 @@
+{
+	"category" : "BaselineOfChartJs",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "BaselineOfChartJs",
+	"pools" : [
+		 ],
+	"super" : "BaselineOf",
+	"type" : "normal" }
