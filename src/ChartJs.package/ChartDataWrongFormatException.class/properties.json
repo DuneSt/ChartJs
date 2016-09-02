@@ -1,0 +1,14 @@
+{
+	"category" : "ChartJs-Exception",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		 ],
+	"name" : "ChartDataWrongFormatException",
+	"pools" : [
+		 ],
+	"super" : "Error",
+	"type" : "normal" }

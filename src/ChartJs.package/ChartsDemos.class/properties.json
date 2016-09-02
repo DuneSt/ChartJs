@@ -1,0 +1,14 @@
+{
+	"category" : "ChartJs-Demo",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "ChartsDemos",
+	"pools" : [
+		 ],
+	"super" : "WAComponent",
+	"type" : "normal" }

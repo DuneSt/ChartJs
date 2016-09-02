@@ -1,0 +1,16 @@
+{
+	"category" : "ChartJs-Model",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "Guillaumelarcheveque 1/27/2016 14:50",
+	"instvars" : [
+		"xObjects",
+		"dataSets",
+		"styleSheet" ],
+	"name" : "ChartData",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

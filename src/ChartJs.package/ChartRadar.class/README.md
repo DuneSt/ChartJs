@@ -1,0 +1,1 @@
+I represent a Radar chart, also called Kiviat

@@ -1,0 +1,1 @@
+I am the most basic char data set existing, i just answer a collection of value from my sequence

@@ -1,0 +1,14 @@
+{
+	"category" : "ChartJs-Types",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "<historical>",
+	"instvars" : [
+		 ],
+	"name" : "ChartRadar",
+	"pools" : [
+		 ],
+	"super" : "ChartType",
+	"type" : "normal" }

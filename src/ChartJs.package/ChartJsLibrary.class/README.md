@@ -1,0 +1,1 @@
+I am the ChartJs library, allowing you to deploy your server in intranet and also having the guarantee that the resource exists

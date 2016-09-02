@@ -1,0 +1,3 @@
+ChartJs
+forChartJS
+	^ self subclassResponsibility 
