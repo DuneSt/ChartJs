@@ -1,3 +1,5 @@
-as yet unclassified
+instance-creation
 values: aCollectionOfAssociations valueDisplayBlock: aBlockOrSymbol
-	^ (self values: aCollectionOfAssociations) valueDisplayBlock: aBlockOrSymbol; yourself
+	^ (self values: aCollectionOfAssociations)
+		valueDisplayBlock: aBlockOrSymbol;
+		yourself
