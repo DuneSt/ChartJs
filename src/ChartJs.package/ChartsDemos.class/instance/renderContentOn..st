@@ -1,6 +1,7 @@
 rendering
 renderContentOn: html
 	| chartData |
+	
 	chartData := ChartData
 		xObjects:
 			{'Eating'.
@@ -25,9 +26,12 @@ renderContentOn: html
 			96.
 			27.
 			100}}.
+			
+	selectedNode ifNotNil: [ html heading level: 3; with: 'Selected node: ', selectedNode asString ].
+			
 	ChartType subclasses
 		do: [ :aCharType | 
 			aCharType isMultiDataSet
 				ifTrue: [ 
 					chartData chartType: aCharType.
-					html render: (ChartJsComponent data: chartData) ] ]
+					html render: (ChartJsComponent data: chartData callback: [:node | selectedNode := node]) ] ]

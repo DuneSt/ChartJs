@@ -4,4 +4,5 @@ initialize
 	app := WAAdmin register: self asApplicationAt: 'ChartJsDemo'.
 	
 	app
-		addLibrary: ChartJsLibrary 
+		addLibrary: ChartJsLibrary;
+		addLibrary: JQDeploymentLibrary  

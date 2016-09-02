@@ -1,8 +1,6 @@
-I am the ChartJs library, allowing you to deploy your server in intranet and also having the guarantee that the resource exists.
-
-I added just after #getPointsAtEvent:
-
-getPointAtEvent : function(e){
+accessing
+extChartJs
+	^ 'Chart.Type.Line.getPointAtEvent = function(e){
 			//Travis2
 			var pointsArray = [],
 				eventPosition = helpers.getRelativePosition(e);
@@ -12,4 +10,4 @@ getPointAtEvent : function(e){
 				});
 			},this);
 			return pointsArray;
-		},
+		};'
