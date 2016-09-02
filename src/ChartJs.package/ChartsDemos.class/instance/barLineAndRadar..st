@@ -30,6 +30,7 @@ barLineAndRadar: html
 					27.
 					100})}.
 	chartData title: [ :sets | 'Spent time for ' , (sets collect: #name) asCommaStringAnd ].
+	chartData multiValueTooltip: '<label> spent <value> min in <key>'.
 	selectedNode
 		ifNotNil: [ 
 			html heading

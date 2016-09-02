@@ -11,6 +11,7 @@ pieDonutAndPolar: html
 			('Cycling' -> 10).
 			('Running' -> 25)}.
 	chartData title: [ :datas | 'Priority of actions' ].
+	chartData singleValueTooltip: '<key> has an importance of <value>%'.
 	selectedValue
 		ifNotNil: [ 
 			html heading
