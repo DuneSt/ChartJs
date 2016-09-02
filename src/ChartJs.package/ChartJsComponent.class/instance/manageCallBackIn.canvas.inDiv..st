@@ -6,12 +6,7 @@ manageCallBackIn: html canvas: canvas inDiv: divId
 			cb := canvas
 				storeCallback:
 					(WAValuesCallback
-						on: [ :nodeOrAssociation | 
-							[ self value cull: nodeOrAssociation key cull: nodeOrAssociation value ]
-								on: MessageNotUnderstood
-								do: [ 
-									"If we have a message not understood, it's a 1DData that don't provide an association"
-									self value value: nodeOrAssociation ] ]
+						on: [ :nodeOrAssociation | self value cull: nodeOrAssociation value cull: nodeOrAssociation key ]
 						values: self data).
 			html
 				script:
