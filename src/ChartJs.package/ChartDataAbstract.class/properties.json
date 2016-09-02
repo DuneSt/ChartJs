@@ -7,7 +7,8 @@
 	"commentStamp" : "GuillaumeLarcheveque 2/10/2016 11:16",
 	"instvars" : [
 		"styleSheet",
-		"title" ],
+		"title",
+		"valueDisplayBlock" ],
 	"name" : "ChartDataAbstract",
 	"pools" : [
 		 ],

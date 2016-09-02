@@ -1,3 +1,4 @@
 ChartJs
 neoJsonOn: writer
-	writer writeList: self datas
+	writer writeListStreamingDo: [ :jsonListWriter |
+		self datas do: [ :each | each forChartJS: writer displayBlock: self valueDisplayBlock] separatedBy: [ writer listElementSeparator ] ]
