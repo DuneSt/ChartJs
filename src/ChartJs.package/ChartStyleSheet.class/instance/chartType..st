@@ -1,3 +1,3 @@
-as yet unclassified
+points
 chartType: aChartType
 	self at: #chartType put: aChartType

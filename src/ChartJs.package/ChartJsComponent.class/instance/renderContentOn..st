@@ -1,7 +1,7 @@
 as yet unclassified
 renderContentOn: html
 	| divId |
-	divId := 'test'.
+	divId := html nextId.
 	html canvas
 		id: divId;
 		style: 'height: 250px, width: 350px'.
