@@ -4,14 +4,12 @@ renderContentOn: html
 	divId := html nextId.
 	canvas := html canvas id: divId.
 	cb := canvas storeCallback: (WAValuesCallback on: [ :node | self value value: node ] values: self data).
-	canvas
-		onClick:
+	html script:
 				(self
 						callbackMechanism: divId
 						actionUrl: html actionUrl asString
 						cb: cb
-						eventsCode: self data chartType eventsCode);
-		style: 'height: 250px, width: 350px'.
+						eventsCode: self data chartType eventsCode).
 	html
 		script:
 			(String
