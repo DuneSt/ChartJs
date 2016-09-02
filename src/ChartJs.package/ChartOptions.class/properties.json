@@ -1,16 +1,15 @@
 {
-	"category" : "ChartJs-Component",
+	"category" : "ChartJs-Model",
 	"classinstvars" : [
 		 ],
 	"classvars" : [
 		 ],
 	"commentStamp" : "<historical>",
 	"instvars" : [
-		"data",
-		"options",
-		"value" ],
-	"name" : "ChartJsComponent",
+		"xAxis",
+		"yAxis" ],
+	"name" : "ChartOptions",
 	"pools" : [
 		 ],
-	"super" : "WAComponent",
+	"super" : "Object",
 	"type" : "normal" }

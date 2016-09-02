@@ -1,3 +1,3 @@
-as yet unclassified
+instance-creation
 data: aChartData
 	^ self new data: aChartData; yourself

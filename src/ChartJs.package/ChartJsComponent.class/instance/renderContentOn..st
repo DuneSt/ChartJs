@@ -39,7 +39,12 @@ renderContentOn: html
 									(NeoJSONWriter on: s)
 										nextPut: self data;
 										close.
-									s nextPutAll: ', {});'.
+									s
+										nextPutAll: ', '.
+										(NeoJSONWriter on: s)
+										nextPut:  self options;
+										close.
+										s nextPutAll: ');'.
 									self data hasLegend
 										ifTrue: [ 
 											s
