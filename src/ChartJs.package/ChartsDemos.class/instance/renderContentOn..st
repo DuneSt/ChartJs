@@ -25,7 +25,9 @@ renderContentOn: html
 			96.
 			27.
 			100}}.
-	html render: (ChartJsComponent data: chartData).
-	chartData chartType: ChartRadar.
-	html render: (ChartJsComponent data: chartData).
-	
+	ChartType subclasses
+		do: [ :aCharType | 
+			aCharType isMultiDataSet
+				ifTrue: [ 
+					chartData chartType: aCharType.
+					html render: (ChartJsComponent data: chartData) ] ]

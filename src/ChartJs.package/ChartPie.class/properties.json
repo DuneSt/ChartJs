@@ -1,0 +1,14 @@
+{
+	"category" : "ChartJs-Types",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "Guillaumelarcheveque 1/27/2016 17:08",
+	"instvars" : [
+		 ],
+	"name" : "ChartPie",
+	"pools" : [
+		 ],
+	"super" : "ChartType",
+	"type" : "normal" }
