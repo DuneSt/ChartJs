@@ -13,7 +13,7 @@ ChartJsCss
 	position: absolute;
 }
 
-.chartJsGraph { 
+.hasLegend .chartJsGraph { 
 	width: 70%;
 }
 

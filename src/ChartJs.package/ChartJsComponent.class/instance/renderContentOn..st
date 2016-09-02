@@ -5,6 +5,7 @@ renderContentOn: html
 	html div
 		class: #chartJsChart;
 		class: self data chartType name;
+		class: #hasLegend if: self data hasLegend;
 		id: divId;
 		with: [ 
 					html div
