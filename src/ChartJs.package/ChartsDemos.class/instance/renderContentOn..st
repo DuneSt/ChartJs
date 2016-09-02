@@ -35,4 +35,6 @@ renderContentOn: html
 			aCharType isMultiDataSet
 				ifTrue: [ 
 					chartData chartType: aCharType.
-					html render: (ChartJsComponent data: chartData callback: [:node | selectedNode := node]) ] ]
+					html render: (ChartJsComponent data: chartData callback: [:node | selectedNode := node]) ] ].
+			
+		html render: (ChartJsComponent data: (ChartData xObjects: (1 to: 10) function: [:x | x * (x + 1)]))

@@ -1,0 +1,14 @@
+{
+	"category" : "ChartJs-Model",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "Guillaumelarcheveque 2/2/2016 15:20",
+	"instvars" : [
+		"function" ],
+	"name" : "ChartDataSetFunction",
+	"pools" : [
+		 ],
+	"super" : "ChartDataSet",
+	"type" : "normal" }

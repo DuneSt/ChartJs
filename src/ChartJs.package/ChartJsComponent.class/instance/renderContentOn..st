@@ -2,10 +2,13 @@ as yet unclassified
 renderContentOn: html
 	| divId canvas cb |
 	divId := html nextId.
-	html div class: #chartJsChart;
+	html div
+		class: #chartJsChart;
 		id: divId;
 		with: [ 
-					canvas := html canvas id: #graph , divId; class: #chartJsGraph.
+					canvas := html canvas
+						id: #graph , divId;
+						class: #chartJsGraph.
 					cb := canvas storeCallback: (WAValuesCallback on: [ :node | self value value: node ] values: self data).
 					html
 						script:
@@ -14,7 +17,11 @@ renderContentOn: html
 								actionUrl: html actionUrl asString
 								cb: cb
 								eventsCode: self data chartType eventsCode).
-					html div id: #legend , divId; class: #chartJsLegend.
+					self data hasLegend
+						ifTrue: [ 
+							html div
+								id: #legend , divId;
+								class: #chartJsLegend ].
 					html
 						script:
 							(String
@@ -31,12 +38,17 @@ renderContentOn: html
 										nextPut: self data;
 										close.
 									s nextPutAll: ', {});'.
-									s
-										nextPutAll: 'document.getElementById("';
-										nextPutAll: #legend , divId;
-										nextPutAll: '").innerHTML=myChart';
-										nextPutAll: divId;
-										nextPutAll: '.generateLegend();' ]).
-					html div
-						id: #title , divId; class: #chartJsTitle;
-						with: [ html text: self data title ] ]
+									self data hasLegend
+										ifTrue: [ 
+											s
+												nextPutAll: 'document.getElementById("';
+												nextPutAll: #legend , divId;
+												nextPutAll: '").innerHTML=myChart';
+												nextPutAll: divId;
+												nextPutAll: '.generateLegend();' ] ]).
+					self data hasTitle
+						ifTrue: [ 
+							html div
+								id: #title , divId;
+								class: #chartJsTitle;
+								with: [ html text: self data title ] ] ]
