@@ -1,3 +1,3 @@
 callback
 at: anInteger ifPresent: aBlockClosure
-	^ aBlockClosure value: nil -> (self datas at: anInteger) value
+	^ aBlockClosure value: (self datas at: anInteger) name -> (self datas at: anInteger) value

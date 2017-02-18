@@ -1,5 +1,5 @@
 tooltip
 adaptToolTip: aToolTipString
-	^ ((aToolTipString copyReplaceAll: '<label>' with: '<%if (datasetLabel){datasetLabel}%>')
-		copyReplaceAll: '<value>'
-		with: '<%= value %>') copyReplaceAll: '<key>' with: '<%= label %>'
+	^ (Array with: '<label>' -> '<%= datasetLabel %>' with: '<value>' -> '<%= value %>' with: '<key>' -> '<%= label %>')
+		inject: aToolTipString
+		into: [ :tooltip :asso | tooltip copyReplaceAll: asso key with: asso value ]

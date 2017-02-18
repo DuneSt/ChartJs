@@ -1,3 +1,3 @@
 accessing
 datas: anObject
-	datas := anObject
+	datas := anObject asArray
