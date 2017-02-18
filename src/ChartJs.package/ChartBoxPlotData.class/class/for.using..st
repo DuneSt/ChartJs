@@ -1,7 +1,7 @@
 as yet unclassified
 for: aCollectionOfObjects using: aProperty
 	| repartition firstQuartile lowest |
-	repartition := (aCollectionOfObjects collect: aProperty) as: SortedCollection.
+	repartition := aCollectionOfObjects collect: aProperty as: SortedCollection.
 	firstQuartile := [ repartition at: (repartition size / 4) asInteger ]
 		on: SubscriptOutOfBounds
 		do: [ repartition median ].
