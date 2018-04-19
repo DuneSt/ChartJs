@@ -1,1 +1,0 @@
-I am an abstract dataSet. All dataSets have a style to display them and must be able to answer a bunch of value for provided objects

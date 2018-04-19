@@ -1,3 +1,0 @@
-axis
-yLogarithmicAxis
-	self yAxis logarithmicScale

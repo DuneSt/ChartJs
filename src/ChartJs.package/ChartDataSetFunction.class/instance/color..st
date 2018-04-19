@@ -1,3 +1,0 @@
-style
-color: aColor 
-	self styleSheet globalSetColor: aColor.

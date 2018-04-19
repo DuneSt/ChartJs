@@ -1,1 +1,0 @@
-I am a one dimension representation of data for graph like Pie, Donut and Polar that present values with label.

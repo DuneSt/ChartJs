@@ -1,3 +1,0 @@
-ChartJs
-eventsCode
-	^ 'getSegmentsAtEvent(evt)'
