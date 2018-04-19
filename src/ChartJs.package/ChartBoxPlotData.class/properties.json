@@ -1,18 +1,17 @@
 {
-	"category" : "ChartJs-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "<historical>",
+	"super" : "Object",
+	"category" : "ChartJs-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"lowest",
 		"firstQuartile",
 		"median",
 		"thirdQuartile",
-		"highest" ],
+		"highest"
+	],
 	"name" : "ChartBoxPlotData",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

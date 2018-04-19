@@ -1,18 +1,17 @@
 {
-	"category" : "ChartJs-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "GuillaumeLarcheveque 2/10/2016 11:16",
+	"super" : "Object",
+	"category" : "ChartJs-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"styleSheet",
 		"title",
 		"valueDisplayBlock",
 		"singleValueTooltip",
-		"multiValueTooltip" ],
+		"multiValueTooltip"
+	],
 	"name" : "ChartDataAbstract",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

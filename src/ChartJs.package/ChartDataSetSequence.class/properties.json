@@ -1,14 +1,13 @@
 {
-	"category" : "ChartJs-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "Guillaumelarcheveque 1/27/2016 15:16",
-	"instvars" : [
-		"sequence" ],
-	"name" : "ChartDataSetSequence",
-	"pools" : [
-		 ],
 	"super" : "ChartDataSet",
-	"type" : "normal" }
+	"category" : "ChartJs-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"sequence"
+	],
+	"name" : "ChartDataSetSequence",
+	"type" : "normal"
+}

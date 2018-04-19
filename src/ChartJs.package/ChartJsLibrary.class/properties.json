@@ -1,14 +1,11 @@
 {
-	"category" : "ChartJs-Library",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "Guillaumelarcheveque 1/28/2016 20:09",
-	"instvars" : [
-		 ],
-	"name" : "ChartJsLibrary",
-	"pools" : [
-		 ],
 	"super" : "WAFileLibrary",
-	"type" : "normal" }
+	"category" : "ChartJs-Library",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ChartJsLibrary",
+	"type" : "normal"
+}

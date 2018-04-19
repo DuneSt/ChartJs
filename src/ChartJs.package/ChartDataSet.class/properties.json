@@ -1,15 +1,14 @@
 {
-	"category" : "ChartJs-Model",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "<historical>",
+	"super" : "Object",
+	"category" : "ChartJs-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
 	"instvars" : [
 		"name",
-		"styleSheet" ],
+		"styleSheet"
+	],
 	"name" : "ChartDataSet",
-	"pools" : [
-		 ],
-	"super" : "Object",
-	"type" : "normal" }
+	"type" : "normal"
+}

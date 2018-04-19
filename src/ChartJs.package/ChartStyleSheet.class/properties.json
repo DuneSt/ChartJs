@@ -1,14 +1,11 @@
 {
-	"category" : "ChartJs-Style",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "Guillaumelarcheveque 1/27/2016 15:10",
-	"instvars" : [
-		 ],
-	"name" : "ChartStyleSheet",
-	"pools" : [
-		 ],
 	"super" : "StyleSheet",
-	"type" : "normal" }
+	"category" : "ChartJs-Style",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ChartStyleSheet",
+	"type" : "normal"
+}
