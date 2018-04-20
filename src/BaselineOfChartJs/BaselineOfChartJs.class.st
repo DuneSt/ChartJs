@@ -24,15 +24,17 @@ BaselineOfChartJs >> baseline: spec [
 			spec
 				package: #'ChartJs-Core' with: [ spec requires: #('Seaside3' 'Stylesheet' 'NeoJSON') ];
 				package: #'ChartJs-Library' with: [ spec requires: #('Seaside3') ];
-				package: #'ChartJs-Demo' with: [ spec requires: #('ChartJs-Core' 'ChartJs-Library') ].
+				package: #'ChartJs-Demo' with: [ spec requires: #('ChartJs-Core' 'ChartJs-Library') ];
+				package: #'ChartJs-Core-Tests' with: [ spec requires: #('ChartJs-Core') ].
 
 			"Groups"
 			spec
 				group: 'all' with: #('default');
 				group: 'core' with: #('ChartJs-Core' 'ChartJs-Library');
 				group: 'core-without-library' with: #('ChartJs-Core');
-				group: 'default' with: #('core' 'demo');
-				group: 'demo' with: #('ChartJs-Demo') ]
+				group: 'default' with: #('core' 'demo' 'tests');
+				group: 'demo' with: #('ChartJs-Demo');
+				group: 'tests' with: #('ChartJs-Core-Tests') ]
 ]
 
 { #category : #dependencies }
