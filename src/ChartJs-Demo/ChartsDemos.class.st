@@ -13,12 +13,14 @@ Class {
 
 { #category : #'class initialization' }
 ChartsDemos class >> initialize [
-	| app |
-	app := WAAdmin register: self asApplicationAt: 'ChartJsDemo'.
-	
-	app
+	(WAAdmin register: self asApplicationAt: 'ChartJsDemo')
 		addLibrary: ChartJsLibrary;
-		addLibrary: JQDeploymentLibrary  
+		addLibrary: JQDeploymentLibrary
+]
+
+{ #category : #versions }
+ChartsDemos class >> version [
+	^ 'development - from v0.0.0'
 ]
 
 { #category : #rendering }
