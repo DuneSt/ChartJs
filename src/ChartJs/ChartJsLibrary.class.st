@@ -4134,7 +4134,7 @@ ChartJsLibrary >> ChartminJs [
 
 { #category : #accessing }
 ChartJsLibrary >> extChartJs [
-	^ 'Chart.defaults.global.responsive= true;'
+	^ 'Chart.defaults.global.responsive= true; var charts = [ ]'
 ]
 
 { #category : #accessing }

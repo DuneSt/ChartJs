@@ -43,22 +43,35 @@ ChartJsComponent >> callback: aBlockClosure [
 
 { #category : #callback }
 ChartJsComponent >> callbackMechanism: canvasId actionUrl: anUrl cb: cb eventsCode: eventsCode [
-	^ 'document.getElementById("graph' , canvasId
-		,
-			'").onclick = function(evt){
+	^ String
+		streamContents: [ :stream | 
+			stream
+				<< 'document.getElementById("graph';
+				<< canvasId;
+				<<
+						'").onclick = function(evt){
 	//add 1 because Pharo start at 1 and Js at 0
-    var activePointIndex = 1 + myChart' , canvasId
-		,
-			(self data chartType isMultiDataSet
-				ifTrue: [ '.datasets[0].' ]
-				ifFalse: [ '.' ]) , self data chartType dataFunction , '.indexOf(myChart' , canvasId , '.' , eventsCode
-		,
-			'[0]);
+    var activePointIndex = 1 + myChart';
+				<< canvasId;
+				<<
+						(self data chartType isMultiDataSet
+								ifTrue: [ '.datasets[0].' ]
+								ifFalse: [ '.' ]);
+				<< self data chartType dataFunction;
+				<< '.indexOf(myChart';
+				<< canvasId;
+				<< '.';
+				<< eventsCode;
+				<<
+						'[0]);
 	if(activePointIndex!=0){
-	post( ''' , anUrl asString , ''', { "' , cb
-		,
-			'" : activePointIndex } );
-}};'
+	post( "';
+				<< anUrl asString;
+				<< '", { "';
+				<< cb;
+				<<
+						'" : activePointIndex } );
+}};' ]
 ]
 
 { #category : #rendering }
@@ -123,13 +136,14 @@ ChartJsComponent >> printDataOn: s [
 
 { #category : #rendering }
 ChartJsComponent >> printDiagramCreationOn: s inDiv: divId [
-	s nextPutAll: 'var myChart'.
-	s nextPutAll: divId.
 	s
-		nextPutAll: ' = new Chart(document.getElementById("';
-		nextPutAll: #graph , divId;
-		nextPutAll: '").getContext("2d")).';
-		nextPutAll: self data chartType forChartJS
+		<< 'var myChart';
+		<< divId;
+		<< ' = new Chart(document.getElementById("';
+		<< #graph;
+		<< divId;
+		<< '").getContext("2d")).';
+		<< self data chartType forChartJS
 ]
 
 { #category : #rendering }
@@ -182,7 +196,11 @@ ChartJsComponent >> renderContentOn: html [
 											s nextPutAll: ', '.
 											self printOptionsOn: s inHtml: html canvas: canvas.
 											s nextPutAll: ');'.
-											self printLegendOn: s forDiv: divId ]).
+											self printLegendOn: s forDiv: divId.
+											s
+												<< 'charts.push(myChart';
+												<< divId;
+												<< ')' ]).
 							self data hasTitle
 								ifTrue: [ self renderTitleId: divId on: html ] ]
 						ifFalse: [ 
