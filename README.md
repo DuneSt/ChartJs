@@ -31,19 +31,19 @@ To install ChartJs on your Pharo image you can execute:
 
 ```Smalltalk
     Metacello new
-    	githubUser: 'DuneSt' project: 'ChartJs' commitish: 'master' path: 'src';
-    	baseline: 'ChartJs';
-		onUpgrade: [ :e | e useIncoming ];
-    	onWarningLog;
-    	load
+        githubUser: 'DuneSt' project: 'ChartJs' commitish: 'master' path: 'src';
+        baseline: 'ChartJs';
+        onUpgrade: [ :e | e useIncoming ];
+        onWarningLog;
+        load
 ```
 
 To add ChartJs Seaside to your baseline just add this:
 
 ```Smalltalk
     spec
-    	baseline: 'ChartJs'
-    	with: [ spec repository: 'github://DuneSt/ChartJs:v1.x.x/src' ]
+        baseline: 'ChartJs'
+        with: [ spec repository: 'github://DuneSt/ChartJs:v1.x.x/src' ]
 ```
 
 Note that you can replace the #v1.x.x by a branch name as #master, #development or a tag as #v1.0.0, #v1.? or #v1.2.? or a commit SHA.
