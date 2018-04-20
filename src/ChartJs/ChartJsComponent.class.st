@@ -187,6 +187,7 @@ ChartJsComponent >> renderContentOn: html [
 								ifTrue: [ self renderTitleId: divId on: html ] ]
 						ifFalse: [ 
 							html div
+								class: 'mdl-alert mdl-alert__danger';
 								style: 'color: red; text-align: center; margin: auto;';
 								with: [ html text: 'No data to display' ] ] ]
 ]
