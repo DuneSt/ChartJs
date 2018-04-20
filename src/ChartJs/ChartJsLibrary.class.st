@@ -4066,9 +4066,10 @@ ChartJsLibrary >> ChartJsCss [
 .chartJsLegend { 
   width: 30%;
   list-style: none;
+  text-align: left;
   right: 8px;
   top: 0;
-	position: absolute;
+  position: absolute;
 }
 
 .hasLegend .chartJsGraph { 
