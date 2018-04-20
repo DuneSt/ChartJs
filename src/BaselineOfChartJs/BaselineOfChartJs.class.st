@@ -1,7 +1,10 @@
+"
+I am a baseline of ChartJs for Seaside. Read more at: https://github.com/DuneSt/ChartJs
+"
 Class {
 	#name : #BaselineOfChartJs,
 	#superclass : #BaselineOf,
-	#category : 'BaselineOfChartJs'
+	#category : #BaselineOfChartJs
 }
 
 { #category : #baseline }
@@ -10,10 +13,10 @@ BaselineOfChartJs >> baseline: spec [
 	spec
 		for: #common
 		do: [ self
-				seaside30: spec;
+				seaside3: spec;
 				stylesheet: spec;
 				neoJSON: spec.
-			spec package: #ChartJs with: [ spec requires: #('Seaside30' 'Stylesheet' 'NeoJSON') ] ]
+			spec package: #ChartJs with: [ spec requires: #('Seaside3' 'Stylesheet' 'NeoJSON') ] ]
 ]
 
 { #category : #dependencies }
@@ -28,29 +31,14 @@ BaselineOfChartJs >> neoJSON: spec [
 
 { #category : #accessing }
 BaselineOfChartJs >> projectClass [
-	self flag: #clean.	"This is a hack that need to be remove after the default version of Metacello includes Cypress suport."
-	^ [ #MetacelloCypressBaselineProject asClass ]
+	^ [ self class environment at: #MetacelloCypressBaselineProject ]
 		on: NotFound
-		do: [ Metacello new
-				baseline: 'Metacello';
-				repository: 'github://dalehenrich/metacello-work:master/repository';
-				get.
-			Metacello new
-				baseline: 'Metacello';
-				repository: 'github://dalehenrich/metacello-work:master/repository';
-				onConflict: [ :ex | ex allow ];
-				load.
-			self projectClass ]
+		do: [ super projectClass ]
 ]
 
 { #category : #dependencies }
-BaselineOfChartJs >> seaside30: spec [
-	spec
-		configuration: 'Seaside30'
-		with: [ spec
-				className: 'ConfigurationOfSeaside3';
-				version: #'release3.2';
-				repository: 'http://smalltalkhub.com/mc/Seaside/MetacelloConfigurations/main' ]
+BaselineOfChartJs >> seaside3: spec [
+	spec baseline: 'Seaside3' with: [ spec repository: 'github://SeasideSt/Seaside/repository' ]
 ]
 
 { #category : #dependencies }
