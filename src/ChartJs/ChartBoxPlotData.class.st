@@ -14,10 +14,14 @@ Class {
 	#category : 'ChartJs-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 ChartBoxPlotData class >> for: aCollectionOfObjects using: aProperty [
-	| repartition firstQuartile lowest |
-	repartition := aCollectionOfObjects collect: aProperty as: SortedCollection.
+	^ self forRepartition: (aCollectionOfObjects collect: aProperty as: SortedCollection)
+]
+
+{ #category : #'instance creation' }
+ChartBoxPlotData class >> forRepartition: repartition [
+	| firstQuartile lowest |
 	firstQuartile := [ repartition at: (repartition size / 4) asInteger ]
 		on: SubscriptOutOfBounds
 		do: [ repartition median ].
@@ -32,7 +36,7 @@ ChartBoxPlotData class >> for: aCollectionOfObjects using: aProperty [
 		highest: (repartition at: (9 * (repartition size / 10)) asInteger)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 ChartBoxPlotData class >> lowest: aLowestValue firstQuartile: aFirstQuartileValue median: aMedianValue thirdQuartile: aThirdQuartileValue highest: aHighestValue [
 	^ self new
 		lowest: aLowestValue;
