@@ -4,7 +4,7 @@ I am the styleSheet for a Chart
 Class {
 	#name : #ChartStyleSheet,
 	#superclass : #StyleSheet,
-	#category : 'ChartJs-Style'
+	#category : #'ChartJs-Core-Style'
 }
 
 { #category : #'as yet unclassified' }

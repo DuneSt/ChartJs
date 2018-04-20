@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'function'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #accessing }

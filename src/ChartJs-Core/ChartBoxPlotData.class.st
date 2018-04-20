@@ -11,7 +11,7 @@ Class {
 		'thirdQuartile',
 		'highest'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #'instance creation' }

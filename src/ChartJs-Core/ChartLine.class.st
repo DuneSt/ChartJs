@@ -4,7 +4,7 @@ I represent a line chart
 Class {
 	#name : #ChartLine,
 	#superclass : #ChartType,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

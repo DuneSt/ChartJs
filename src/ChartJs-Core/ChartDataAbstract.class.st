@@ -11,7 +11,7 @@ Class {
 		'singleValueTooltip',
 		'multiValueTooltip'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #tooltip }

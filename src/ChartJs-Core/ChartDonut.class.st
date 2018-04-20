@@ -4,7 +4,7 @@ I represent a homer donut chart
 Class {
 	#name : #ChartDonut,
 	#superclass : #ChartType,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

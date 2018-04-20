@@ -11,7 +11,7 @@ Class {
 		'dataSets',
 		'keyDisplayBlock'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #'instance-creation' }

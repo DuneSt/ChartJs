@@ -4,7 +4,7 @@ I represent a bar chart
 Class {
 	#name : #ChartBar,
 	#superclass : #ChartType,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

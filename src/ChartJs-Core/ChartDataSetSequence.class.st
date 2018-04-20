@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'sequence'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #'instance-creation' }

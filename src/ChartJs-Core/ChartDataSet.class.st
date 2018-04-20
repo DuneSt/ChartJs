@@ -8,7 +8,7 @@ Class {
 		'name',
 		'styleSheet'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #exchange }

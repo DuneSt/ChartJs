@@ -8,7 +8,7 @@ Class {
 		'scale',
 		'visible'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #initialization }

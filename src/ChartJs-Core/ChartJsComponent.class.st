@@ -13,7 +13,7 @@ Class {
 		'options',
 		'value'
 	],
-	#category : 'ChartJs-Component'
+	#category : #'ChartJs-Core-Component'
 }
 
 { #category : #'instance-creation' }

@@ -9,7 +9,7 @@ Class {
 		'yAxis',
 		'toolTip'
 	],
-	#category : 'ChartJs-Model'
+	#category : #'ChartJs-Core-Model'
 }
 
 { #category : #'as yet unclassified' }

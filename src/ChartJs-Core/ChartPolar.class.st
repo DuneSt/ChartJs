@@ -4,7 +4,7 @@ I represent a polar chart
 Class {
 	#name : #ChartPolar,
 	#superclass : #ChartType,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

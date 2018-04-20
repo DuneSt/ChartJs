@@ -4,7 +4,7 @@ I am the superclass for all chart types
 Class {
 	#name : #ChartType,
 	#superclass : #Object,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

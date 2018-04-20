@@ -4,7 +4,7 @@ I represent a pie chart
 Class {
 	#name : #ChartPie,
 	#superclass : #ChartType,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

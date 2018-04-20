@@ -4,5 +4,5 @@ I am an exception when the provided data is not in the right format (not enought
 Class {
 	#name : #ChartDataWrongFormatException,
 	#superclass : #Error,
-	#category : 'ChartJs-Exception'
+	#category : #'ChartJs-Core-Exception'
 }

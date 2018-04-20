@@ -12,11 +12,27 @@ BaselineOfChartJs >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [ self
+		do: [ 
+			
+			"Dependencies"
+			self
 				seaside3: spec;
 				stylesheet: spec;
 				neoJSON: spec.
-			spec package: #ChartJs with: [ spec requires: #('Seaside3' 'Stylesheet' 'NeoJSON') ] ]
+
+			"Packages"
+			spec
+				package: #'ChartJs-Core' with: [ spec requires: #('Seaside3' 'Stylesheet' 'NeoJSON') ];
+				package: #'ChartJs-Library' with: [ spec requires: #('Seaside3') ];
+				package: #'ChartJs-Demo' with: [ spec requires: #('ChartJs-Core' 'ChartJs-Library') ].
+
+			"Groups"
+			spec
+				group: 'all' with: #('default');
+				group: 'core' with: #('ChartJs-Core' 'ChartJs-Library');
+				group: 'core-without-library' with: #('ChartJs-Core');
+				group: 'default' with: #('core' 'demo');
+				group: 'demo' with: #('ChartJs-Demo') ]
 ]
 
 { #category : #dependencies }

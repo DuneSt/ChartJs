@@ -4,7 +4,7 @@ I represent a Radar chart, also called Kiviat
 Class {
 	#name : #ChartRadar,
 	#superclass : #ChartType,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

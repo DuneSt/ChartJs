@@ -4,7 +4,7 @@ I represent a chart box plot, I require ChartBoxPlotData in my datasets
 Class {
 	#name : #ChartBoxPlot,
 	#superclass : #ChartType,
-	#category : 'ChartJs-Types'
+	#category : #'ChartJs-Core-Types'
 }
 
 { #category : #ChartJs }

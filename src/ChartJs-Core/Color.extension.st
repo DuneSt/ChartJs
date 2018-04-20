@@ -1,6 +1,6 @@
 Extension { #name : #Color }
 
-{ #category : #'*ChartJs' }
+{ #category : #'*ChartJs-Core' }
 Color >> forChartJs [
 	^ String
 		streamContents: [ :s | 
