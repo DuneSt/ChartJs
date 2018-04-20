@@ -177,37 +177,33 @@ ChartJsComponent >> renderContentOn: html [
 		class: self data chartType name;
 		class: #hasLegend if: self data hasLegend;
 		id: divId;
-		with: [ 
-					self data hasData
-						ifTrue: [ 
-							html div
-								class: #chartJsGraph;
-								with: [ 
-											canvas := html canvas id: #graph , divId.
-											self manageCallBackIn: html canvas: canvas inDiv: divId ].
-							self createIfNecessaryLegend: html inDiv: divId.
-							html
-								script:
-									(String
-										streamContents: [ :s | 
-											self printDiagramCreationOn: s inDiv: divId.
-											s nextPutAll: '('.
-											self printDataOn: s.
-											s nextPutAll: ', '.
-											self printOptionsOn: s inHtml: html canvas: canvas.
-											s nextPutAll: ');'.
-											self printLegendOn: s forDiv: divId.
-											s
-												<< 'charts.push(myChart';
-												<< divId;
-												<< ')' ]).
-							self data hasTitle
-								ifTrue: [ self renderTitleId: divId on: html ] ]
-						ifFalse: [ 
-							html div
-								class: 'mdl-alert mdl-alert__danger';
-								style: 'color: red; text-align: center; margin: auto;';
-								with: [ html text: 'No data to display' ] ] ]
+		with: [ self data hasData
+				ifTrue: [ html div
+						class: #chartJsGraph;
+						with: [ canvas := html canvas id: #graph , divId.
+							self manageCallBackIn: html canvas: canvas inDiv: divId ].
+					self createIfNecessaryLegend: html inDiv: divId.
+					html
+						script:
+							(String
+								streamContents: [ :s | 
+									self printDiagramCreationOn: s inDiv: divId.
+									s nextPutAll: '('.
+									self printDataOn: s.
+									s nextPutAll: ', '.
+									self printOptionsOn: s inHtml: html canvas: canvas.
+									s nextPutAll: ');'.
+									self printLegendOn: s forDiv: divId.
+									s
+										<< 'charts.push(myChart';
+										<< divId;
+										<< ')' ]) ]
+				ifFalse: [ html div
+						class: 'mdl-alert mdl-alert__danger';
+						style: 'color: red; text-align: center; margin: auto;';
+						with: [ html text: 'No data to display' ] ].
+			self data hasTitle
+				ifTrue: [ self renderTitleId: divId on: html ] ]
 ]
 
 { #category : #rendering }
