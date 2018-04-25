@@ -18,13 +18,14 @@ BaselineOfChartJs >> baseline: spec [
 			self
 				seaside3: spec;
 				stylesheet: spec;
-				neoJSON: spec.
+				neoJSON: spec;
+				prism: spec.
 
 			"Packages"
 			spec
 				package: #'ChartJs-Core' with: [ spec requires: #('Seaside3' 'Stylesheet' 'NeoJSON') ];
 				package: #'ChartJs-Library' with: [ spec requires: #('Seaside3') ];
-				package: #'ChartJs-Demo' with: [ spec requires: #('ChartJs-Core' 'ChartJs-Library') ];
+				package: #'ChartJs-Demo' with: [ spec requires: #('ChartJs-Core' 'ChartJs-Library' 'PrismCodeDisplayer') ];
 				package: #'ChartJs-Core-Tests' with: [ spec requires: #('ChartJs-Core') ].
 
 			"Groups"
@@ -45,6 +46,11 @@ BaselineOfChartJs >> neoJSON: spec [
 				className: 'ConfigurationOfNeoJSON';
 				version: #stable;
 				repository: 'http://smalltalkhub.com/mc/SvenVanCaekenberghe/Neo/main' ]
+]
+
+{ #category : #dependencies }
+BaselineOfChartJs >> prism: spec [
+	spec baseline: 'PrismCodeDisplayer' with: [ spec repository: 'github://DuneSt/PrismCodeDisplayer:v1.x.x/src' ]
 ]
 
 { #category : #accessing }

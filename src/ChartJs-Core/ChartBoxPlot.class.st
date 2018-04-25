@@ -22,7 +22,7 @@ ChartBoxPlot class >> forChartJS [
 	^ 'BoxPlot'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 ChartBoxPlot class >> isMultiDataSet [
 	^ true
 ]
