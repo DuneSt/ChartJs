@@ -26,37 +26,20 @@ Chart1dDemo >> renderChartJsComponentOn: html [
 	| renderingChartBlock id |
 	
 	renderingChartBlock := [ :canvas | 
-		
 	| chartData |
-	chartData := Chart1dData
-		values:
-			{('Eating' -> 80).
-			('Drinking' -> 100).
-			('Sleeping' -> 70).
-			('Designing' -> 50).
-			('Coding' -> 40).
-			('Cycling' -> 10).
-			('Running' -> 25)}.
-	chartData title: [ :datas | 'Priority of actions' ].
-	chartData singleValueTooltip: '<key> has an importance of <value>%'.
+	chartData := (Chart1dData values: {('Eating' -> 80). ('Drinking' -> 100). ('Sleeping' -> 70). ('Designing' -> 50). ('Coding' -> 40). ('Cycling' -> 10). ('Running' -> 25)})
+		title: [ :datas | 'Priority of actions' ];
+		singleValueTooltip: '<key> has an importance of <value>%';
+		chartType: self kind;
+		yourself.
 	selection
 		ifNotNil: [ canvas heading
 				level: 3;
-				with:
-					'Selected value: ' , selection key asString , ' label: '
-						, selection value ].
-	"options := ChartOptions new toolTip: [ :label :value | Halt now ]."
-	chartData chartType: self kind.
-	canvas
-		render:
-			(ChartJsComponent
-				data: chartData
-				callback: [ :value :label | selection := value -> label ]) ].
+				with: 'Selected value: ' , selection key asString , ' label: ' , selection value ].
 			
+	canvas render: (ChartJsComponent data: chartData callback: [ :value :label | selection := value -> label ]) ].
+
 	id := html nextId.
-	self
-		renderPossibleKindsUpdating: id
-		with: renderingChartBlock
-		on: html.
+	self renderPossibleKindsUpdating: id with: renderingChartBlock on: html.
 	self renderDemoWithId: id with: renderingChartBlock on: html
 ]
