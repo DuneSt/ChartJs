@@ -50,7 +50,11 @@ BaselineOfChartJs >> neoJSON: spec [
 
 { #category : #dependencies }
 BaselineOfChartJs >> prism: spec [
-	spec baseline: 'PrismCodeDisplayer' with: [ spec repository: 'github://DuneSt/PrismCodeDisplayer:v1.x.x/src' ]
+	spec
+		baseline: 'PrismCodeDisplayer'
+		with: [ spec
+				repository: 'github://DuneSt/PrismCodeDisplayer:v1.x.x/src';
+				loads: 'core' ]
 ]
 
 { #category : #accessing }
