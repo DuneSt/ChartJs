@@ -45,7 +45,7 @@ ChartAbstractChartTypeDemo >> renderDemoWithId: id with: renderingChartBlock on:
 { #category : #rendering }
 ChartAbstractChartTypeDemo >> renderPossibleKindsUpdating: id with: renderingChartBlock on: html [
 	html form
-		style: 'display: flex; justify-content: space-around;';
+		style: 'display: flex; justify-content: space-around; margin-bottom: 20px;';
 		with: [ html radioGroup
 				selected: self kind;
 				callback: [ :k | self kind: k ];

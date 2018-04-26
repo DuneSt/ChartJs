@@ -22,11 +22,11 @@ ChartStyleSheet class >> default [
 ]
 
 { #category : #'as yet unclassified' }
-ChartStyleSheet >> charDataSetNeoJsonObject [
+ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: values label: aLabel [
 	^ #(#fillColor #strokeColor #pointColor #pointStrokeColor #pointHighlightFill #pointHighlightStroke)
 		inject: Dictionary new
 		into: [ :dico :aStyleSelector | 
-			[ (dico at: aStyleSelector put: (self perform: aStyleSelector) forChartJs)  ]
+			[ dico at: aStyleSelector put: (self obtainValue: aStyleSelector value forKeys: aCollectionOfXObjects andValues: values andLabel: aLabel) forChartJs ]
 				on: NotFound
 				do: [  ].
 			dico ]
@@ -71,6 +71,24 @@ ChartStyleSheet >> globalSetColorZone: aColor [
 { #category : #scale }
 ChartStyleSheet >> logarithmicScale [
 	self at: #scale put: #logarithmic
+]
+
+{ #category : #'as yet unclassified' }
+ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjects andValues: values [
+	| result |
+	result := aPropertyOrValuable cull: self.
+	^ (result isBlock or: [ result isSymbol ])
+		ifTrue: [ result cull: aCollectionOfXObjects cull: values ]
+		ifFalse: [ result ]
+]
+
+{ #category : #'as yet unclassified' }
+ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjects andValues: values andLabel: aLabel [
+	| result |
+	result := aPropertyOrValuable cull: self.
+	^ (result isBlock or: [ result isSymbol ])
+		ifTrue: [ result chartJsCull: aCollectionOfXObjects cull: values cull: aLabel ]
+		ifFalse: [ result ]
 ]
 
 { #category : #points }
