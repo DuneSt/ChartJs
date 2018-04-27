@@ -76,6 +76,7 @@ You can find a demo at: [https://demos.ferlicot.fr/ChartJs](https://demos.ferlic
 
 | ChartJs version 	| Compatible Pharo versions 	|
 |---------------	|---------------------------	|
+| v1.0.0	      	| Pharo 61                  	|
 | development      	| Pharo 61                  	|
 
 ## Contact
