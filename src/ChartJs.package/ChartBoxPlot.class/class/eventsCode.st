@@ -1,3 +1,0 @@
-ChartJs
-eventsCode
-	^ 'getBarsAtEvent(evt)'

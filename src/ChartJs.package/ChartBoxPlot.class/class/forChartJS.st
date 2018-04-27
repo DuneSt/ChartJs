@@ -1,3 +1,0 @@
-ChartJs
-forChartJS
-	^ 'BoxPlot'

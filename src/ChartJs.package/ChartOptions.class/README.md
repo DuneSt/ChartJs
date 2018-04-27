@@ -1,1 +1,0 @@
-I represent all the options for a chart (scale, axis color...)
