@@ -12,7 +12,7 @@ Class {
 	#category : #'ChartJs-Core-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #converting }
 ChartOptions >> asDictionary [
 	| optionDictionary |
 	optionDictionary := Dictionary new.
@@ -29,23 +29,23 @@ ChartOptions >> hasToolTip [
 	^ self toolTip notNil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #initialization }
 ChartOptions >> initialize [
 	self xAxis: ChartAxisOptions new.
 	self yAxis: ChartAxisOptions new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #conversion }
 ChartOptions >> neoJsonOn: neoJSONWriter [
 	neoJSONWriter writeMap: self asDictionary
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 ChartOptions >> toolTip [
 	^ toolTip
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 ChartOptions >> toolTip: aToolTipBlock [
 	self
 		assert: (aToolTipBlock isBlock and: [ aToolTipBlock numArgs = 2 ])

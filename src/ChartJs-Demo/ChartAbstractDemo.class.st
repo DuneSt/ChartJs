@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 ChartAbstractDemo class >> demos [
-	^ self allSubclasses reject: #isAbstract
+	^ (self allSubclasses reject: #isAbstract) sorted: [ :a :b | a title < b title ]
 ]
 
 { #category : #accessing }

@@ -194,7 +194,7 @@ ChartsDemos >> style [
 }
 
 .chartJs-demo-snippet-demo .chartJsChart {
-    min-width: 500px;
+    min-width: 600px;
     margin: auto;
 }
 
