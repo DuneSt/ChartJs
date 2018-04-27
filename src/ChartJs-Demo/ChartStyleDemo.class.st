@@ -16,8 +16,7 @@ ChartStyleDemo class >> title [
 
 { #category : #rendering }
 ChartStyleDemo >> renderChartJsComponentOn: html [
-	| chartData |
-	self flag: #todo. "This is not done."
+	| chartData styleForPersons |
 	chartData := (Chart2dData
 		xObjects: {'Eating' . 'Drinking' . 'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running'}
 		multiYObjects:
@@ -26,16 +25,20 @@ ChartStyleDemo >> renderChartJsComponentOn: html [
 		title: [ :sets | 'Spent time for ' , (sets collect: #name) asCommaStringAnd ];
 		chartType: ChartLine;
 		yourself.
+		
+	styleForPersons := Dictionary
+		with: 'Guillaume' -> (Dictionary with: #pointColor -> Color green with: #strokeColor -> Color green with: #fillColor -> Color lightGreen)
+		with: 'Cyril' -> (Dictionary with: #pointColor -> Color blue with: #strokeColor -> Color blue with: #fillColor -> Color lightBlue).
+		
 	chartData dataSets
 		do: [ :set | 
 			set styleSheet
-				pointColor: [ :keys :values :label | 
-					label = 'Guillaume'
-						ifTrue: [ Color green ]
-						ifFalse: [ Color blue ] ];
-				strokeColor: [ :keys :values :label | 
-					label = 'Guillaume'
-						ifTrue: [ Color green ]
-						ifFalse: [ Color blue ] ] ].
+				pointColor: [ :keys :values :label | (styleForPersons at: label) at: #pointColor ];
+				strokeColor: [ :keys :values :label | (styleForPersons at: label) at: #strokeColor ];
+				pointStrokeColor: Color white;
+				fillColor: [ :keys :values :label | ((styleForPersons at: label) at: #fillColor) alpha: 0.3 ];
+				pointHighlightFill: Color pink;
+				pointHighlightStroke: Color red ].
+			
 	html render: (ChartJsComponent data: chartData)
 ]
