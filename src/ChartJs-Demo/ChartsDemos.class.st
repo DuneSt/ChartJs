@@ -23,7 +23,7 @@ ChartsDemos class >> initialize [
 
 { #category : #versions }
 ChartsDemos class >> version [
-	^ 'development - from v0.0.0'
+	^ 'v1.0.0'
 ]
 
 { #category : #accessing }
