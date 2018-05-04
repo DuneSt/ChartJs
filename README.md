@@ -66,7 +66,7 @@ You can find multiple examples when the application will be installed at the url
 
 When you install in a plain Pharo image you need to start the seaside server first by opening `World menu > Tools > Seaside Control Panel` and adding and starting an appropropriate `ZnZincServerAdaptor`. If you do not use port 8080, change the port in the URL.
 
-You can find a demo at: [https://demos.ferlicot.fr/ChartJs](https://demos.ferlicot.fr/ChartJs)
+You can find a demo at: [https://demos.ferlicot.fr/ChartJsDemo](https://demos.ferlicot.fr/ChartJsDemo)
 
 ## Latest supported Dependency
 
