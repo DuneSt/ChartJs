@@ -71,10 +71,5 @@ BaselineOfChartJs >> seaside3: spec [
 
 { #category : #dependencies }
 BaselineOfChartJs >> stylesheet: spec [
-	spec
-		configuration: 'Stylesheet'
-		with: [ spec
-				className: 'ConfigurationOfStylesheet';
-				version: #development;
-				repository: 'http://smalltalkhub.com/mc/RMoD/Stylesheet/main' ]
+	spec baseline: 'Stylesheet' with: [ spec repository: 'github://pharo-contributions/Stylesheet:v1.x.x/src' ]
 ]
