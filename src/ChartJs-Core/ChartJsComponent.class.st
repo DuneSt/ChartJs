@@ -128,27 +128,6 @@ ChartJsComponent >> options: anObject [
 ]
 
 { #category : #rendering }
-ChartJsComponent >> printChartDataOn: s [
-
- self flag: #todo 
-]
-
-{ #category : #rendering }
-ChartJsComponent >> printChartOptionsOn: s [
- self flag: #todo 
-
-]
-
-{ #category : #rendering }
-ChartJsComponent >> printChartTypeOn: s [
-	"s
-		<< 'type:'
-		<< self data chartType forChartJS
-		<< ','"
-		 self flag: #todo 
-]
-
-{ #category : #rendering }
 ChartJsComponent >> printDataOn: s [
 	(NeoJSONWriter on: s)
 		nextPut: self data;
@@ -161,22 +140,21 @@ ChartJsComponent >> printDiagramContextCreationOn: s inDiv: divId [
 		<< 'var ctx = document.getElementById("';
 		<< #graph;
 		<< divId;
-		<< '").getContext("2d"));'
+		<< '").getContext("2d");'
 ]
 
 { #category : #rendering }
 ChartJsComponent >> printDiagramCreationOn: s [
 	s
-		<< 'var myChart = new Chart(ctx, {' ;
+		<< 'var myChart = new Chart(ctx, {';
+		cr ;
+		<< 'type:"' ;
+		<< data chartType forChartJS asLowercase ;
+		<< '",data:' ;
 		cr.
-		
-	self printChartTypeOn: s.
-	self printChartDataOn: s.
-	self printChartOptionsOn: s.
-
-	s
-		<< '});'
-
+	(NeoJSONWriter on: s) nextPut: self data.
+	"(NeoJSONWriter on: s) nextPut: self data options."
+	s << '});'
 ]
 
 { #category : #rendering }
@@ -221,8 +199,10 @@ ChartJsComponent >> renderContentOn: html [
 							(String
 								streamContents: [ :s | 
 									self printDiagramContextCreationOn: s inDiv: divId.
+									s cr.
 									self printDiagramCreationOn: s.
 									s
+										cr ;
 										<< 'charts.push(myChart';
 										<< divId;
 										<< ')' ]) ]
