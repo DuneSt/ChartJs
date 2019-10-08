@@ -9,7 +9,8 @@ Class {
 	#instVars : [
 		'xObjects',
 		'dataSets',
-		'keyDisplayBlock'
+		'keyDisplayBlock',
+		'colors'
 	],
 	#category : #'ChartJs-Core-Model'
 }

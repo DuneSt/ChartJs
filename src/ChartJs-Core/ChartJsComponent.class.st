@@ -147,13 +147,16 @@ ChartJsComponent >> printDiagramContextCreationOn: s inDiv: divId [
 ChartJsComponent >> printDiagramCreationOn: s [
 	s
 		<< 'var myChart = new Chart(ctx, {';
-		cr ;
-		<< 'type:"' ;
-		<< data chartType forChartJS asLowercase ;
-		<< '",data:' ;
+		cr;
+		<< 'type:"';
+		<< data chartType forChartJS asLowercase;
+		<< '",data:';
 		cr.
 	(NeoJSONWriter on: s) nextPut: self data.
-	"(NeoJSONWriter on: s) nextPut: self data options."
+	s
+		cr;
+		<< ',options:'.
+	self printOptionsOn: s inHtml: nil canvas: nil.
 	s << '});'
 ]
 
@@ -173,7 +176,7 @@ ChartJsComponent >> printLegendOn: s forDiv: divId [
 ChartJsComponent >> printOptionsOn: s inHtml: html canvas: canvas [
 	|  optionsDictionary |
 	optionsDictionary := self options asDictionary.
-	self data enrichOptions: optionsDictionary.
+	"self data enrichOptions: optionsDictionary."
 	(NeoJSONWriter on: s)
 		nextPut: optionsDictionary;
 		close

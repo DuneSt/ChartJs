@@ -11,6 +11,7 @@ Class {
 ChartStyleSheet class >> charDataSetDefault [
 	^ self new
 		globalSetColor: Color random;
+		defaultOptions ;
 		yourself
 ]
 
@@ -23,10 +24,26 @@ ChartStyleSheet class >> default [
 
 { #category : #'as yet unclassified' }
 ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: values label: aLabel [
-	^ #(#fillColor #strokeColor #pointColor #pointStrokeColor #pointHighlightFill #pointHighlightStroke)
-		inject: Dictionary new
+	| styleDict |
+	styleDict := Dictionary new.
+	styleDict at: #fill
+				put:
+					(self
+						obtainValue: #fill value
+						forKeys: aCollectionOfXObjects
+						andValues: values
+						andLabel: aLabel).
+	^ #(#fillColor #strokeColor #pointColor)
+		inject: styleDict
 		into: [ :dico :aStyleSelector | 
-			[ dico at: aStyleSelector put: (self obtainValue: aStyleSelector value forKeys: aCollectionOfXObjects andValues: values andLabel: aLabel) forChartJs ]
+			[ dico
+				at: aStyleSelector
+				put:
+					(self
+						obtainValue: aStyleSelector value
+						forKeys: aCollectionOfXObjects
+						andValues: values
+						andLabel: aLabel) forChartJs ]
 				on: NotFound
 				do: [  ].
 			dico ]
@@ -40,6 +57,21 @@ ChartStyleSheet >> chartType [
 { #category : #points }
 ChartStyleSheet >> chartType: aChartType [
 	self at: #chartType put: aChartType
+]
+
+{ #category : #helpers }
+ChartStyleSheet >> defaultOptions [
+	self fill: false
+]
+
+{ #category : #points }
+ChartStyleSheet >> fill [
+	^ self get: #fill
+]
+
+{ #category : #points }
+ChartStyleSheet >> fill: aBoolean [
+	^ self at: #fill put: aBoolean
 ]
 
 { #category : #points }
