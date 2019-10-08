@@ -45,11 +45,18 @@ ChartDataSet >> name: anObject [
 { #category : #exchange }
 ChartDataSet >> neoJsonObjectFor: aCollectionOfXObjects block: aBlock [
 	| dico |
+	self flag: 'option for fill: "dico at: #fill put: true." '.
 	dico := Dictionary new.
 	dico at: #label put: self name.
 	dico at: #data put: (self valuesFor: aCollectionOfXObjects block: aBlock).
-	dico addAll: (self styleSheet charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: (dico at: #data) label: self name).
+	
+	dico addAll: (self styleSheet attributes).
 	^ dico
+]
+
+{ #category : #exchange }
+ChartDataSet >> setOption: aSymbol to: aValue [
+	self styleSheet setOption: aSymbol to: aValue
 ]
 
 { #category : #accessing }

@@ -11,7 +11,6 @@ Class {
 ChartStyleSheet class >> charDataSetDefault [
 	^ self new
 		globalSetColor: Color random;
-		defaultOptions ;
 		yourself
 ]
 
@@ -24,17 +23,9 @@ ChartStyleSheet class >> default [
 
 { #category : #'as yet unclassified' }
 ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: values label: aLabel [
-	| styleDict |
-	styleDict := Dictionary new.
-	styleDict at: #fill
-				put:
-					(self
-						obtainValue: #fill value
-						forKeys: aCollectionOfXObjects
-						andValues: values
-						andLabel: aLabel).
-	^ #(#fillColor #strokeColor #pointColor)
-		inject: styleDict
+	self flag: 'Only works for color style. How to have other options?'.
+	^ #(#fillColor #strokeColor #pointColor "#pointStrokeColor #pointHighlightFill #pointHighlightStroke")
+		inject: Dictionary new
 		into: [ :dico :aStyleSelector | 
 			[ dico
 				at: aStyleSelector
@@ -59,21 +50,6 @@ ChartStyleSheet >> chartType: aChartType [
 	self at: #chartType put: aChartType
 ]
 
-{ #category : #helpers }
-ChartStyleSheet >> defaultOptions [
-	self fill: false
-]
-
-{ #category : #points }
-ChartStyleSheet >> fill [
-	^ self get: #fill
-]
-
-{ #category : #points }
-ChartStyleSheet >> fill: aBoolean [
-	^ self at: #fill put: aBoolean
-]
-
 { #category : #points }
 ChartStyleSheet >> fillColor [
 	^ self get: #fillColor
@@ -86,12 +62,13 @@ ChartStyleSheet >> fillColor: aColor [
 
 { #category : #helpers }
 ChartStyleSheet >> globalSetColor: aColor [
-	self fillColor: (aColor copy alpha: 0.2).
-	self pointColor: aColor.
-	self pointHighlightFill: Color white.
-	self pointHighlightStroke: aColor.
-	self pointStrokeColor: Color white.
-	self strokeColor: aColor
+	self flag: 'hack forChartJs'.
+	self fillColor: (aColor copy alpha: 0.2) forChartJs .
+	self pointColor: aColor  forChartJs .
+	self pointHighlightFill: Color white  forChartJs .
+	self pointHighlightStroke: aColor  forChartJs .
+	self pointStrokeColor: Color white  forChartJs .
+	self strokeColor: aColor  forChartJs .
 ]
 
 { #category : #helpers }
@@ -166,6 +143,11 @@ ChartStyleSheet >> pointStrokeColor: aColor [
 { #category : #scale }
 ChartStyleSheet >> scale [
 	self get: #scale
+]
+
+{ #category : #points }
+ChartStyleSheet >> setOption: aSymbol to: aValue [
+	^ self at: aSymbol put: aValue
 ]
 
 { #category : #points }

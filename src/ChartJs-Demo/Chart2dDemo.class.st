@@ -34,6 +34,7 @@ Chart2dDemo >> renderChartJsComponentOn: html [
 		multiValueTooltip: '<label> spent <value> min in <key>';
 		chartType: self kind;
 		yourself.
+	chartData dataSets first setOption: #fill to: false.
 	selection
 		ifNotNil: [ canvas heading
 				level: 3;
