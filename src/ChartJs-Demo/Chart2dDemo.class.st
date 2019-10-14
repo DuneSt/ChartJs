@@ -24,23 +24,31 @@ Chart2dDemo >> kinds [
 { #category : #rendering }
 Chart2dDemo >> renderChartJsComponentOn: html [
 	| renderingChartBlock id |
-	
 	renderingChartBlock := [ :canvas | 
 	| chartData |
 	chartData := (ChartData
-		xObjects: {'Eating' . 'Drinking' . 'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running'}
-		multiYObjects: {('Guillaume' -> {65 . 59 . 90 . 81 . 56 . 55 . 40}). ('Cyril' -> {28 . 48 . 40 . 19 . 96 . 27 . 100})})
+		xObjects:
+		{'Eating' . 'Drinking' . 'Sleeping' . 'Designing' . 'Coding' . 'Cycling'.
+	'Running'}
+		multiYObjects:
+		{('Guillaume' -> {65 . 59 . 90 . 81 . 56 . 55 . 40}).
+			('Cyril' -> {28 . 48 . 40 . 19 . 96 . 27 . 100})})
 		title: [ :sets | 'Spent time for ' , (sets collect: #name) asCommaStringAnd ];
-		multiValueTooltip: '<label> spent <value> min in <key>';
 		chartType: self kind;
 		yourself.
 	selection
 		ifNotNil: [ canvas heading
 				level: 3;
-				with: 'Selected value: ' , selection key asString , ' label: ' , selection value ].
-	html render: (ChartJsComponent data: chartData callback: [ :value :label | selection := value -> label ]) ].
-
+				with:
+					'Selected value: ' , selection key asString , ' label: '
+						, selection value ].
+	html render: (ChartJsComponent
+		data: chartData
+		callback: [ :value :label | selection := value -> label ]) ].
 	id := html nextId.
-	self renderPossibleKindsUpdating: id with: renderingChartBlock on: html.
+	self
+		renderPossibleKindsUpdating: id
+		with: renderingChartBlock
+		on: html.
 	self renderDemoWithId: id with: renderingChartBlock on: html
 ]

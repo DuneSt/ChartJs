@@ -21,7 +21,6 @@ ChartOptions >> asDictionary [
 		put:
 			{(#xAxes -> self xAxis).
 			(#yAxes -> self yAxis)} asDictionary."
-	"optionDictionary at: #animation put: '{duration: 0}'. "
 	^ optionDictionary
 ]
 

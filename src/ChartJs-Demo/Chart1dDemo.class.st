@@ -31,7 +31,6 @@ Chart1dDemo >> renderChartJsComponentOn: html [
 						xObjects: {'Eating' . 'Drinking' .'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running' }
 						yObjects: { 80 . 100 . 70 . 50 . 40 . 10 . 25})
 		title: [ :datas | 'Priority of actions' ];
-		singleValueTooltip: '<key> has an importance of <value>%';
 		chartType: self kind;
 		yourself.
 	selection

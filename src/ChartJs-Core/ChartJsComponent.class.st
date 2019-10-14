@@ -176,7 +176,6 @@ ChartJsComponent >> printLegendOn: s forDiv: divId [
 ChartJsComponent >> printOptionsOn: s inHtml: html canvas: canvas [
 	|  optionsDictionary |
 	optionsDictionary := self options asDictionary.
-	"self data enrichOptions: optionsDictionary."
 	(NeoJSONWriter on: s)
 		nextPut: optionsDictionary;
 		close
@@ -203,12 +202,7 @@ ChartJsComponent >> renderContentOn: html [
 								streamContents: [ :s | 
 									self printDiagramContextCreationOn: s inDiv: divId.
 									s cr.
-									self printDiagramCreationOn: s.
-									s
-										cr ;
-										<< 'charts.push(myChart';
-										<< divId;
-										<< ')' ]) ]
+									self printDiagramCreationOn: s ]) ]
 				ifFalse: [ html div
 						class: 'mdl-alert mdl-alert__danger';
 						style: 'color: red; text-align: center; margin: auto;';

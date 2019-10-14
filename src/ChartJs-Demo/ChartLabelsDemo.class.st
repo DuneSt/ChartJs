@@ -22,7 +22,6 @@ ChartLabelsDemo >> renderChartJsComponentOn: html [
 		function: #methods.
 	chartData
 		title: [ :sets | 'Spent time for ' , (sets collect: #name) asCommaStringAnd ];
-		multiValueTooltip: '<label> spent <value> min in <key>';
 		chartType: ChartLine;
 		keyDisplayBlock: #printString;
 		valueDisplayBlock: [ :methods | methods size ].

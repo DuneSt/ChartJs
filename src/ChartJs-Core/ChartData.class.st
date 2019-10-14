@@ -59,11 +59,6 @@ ChartData >> adaptToolTip: aToolTipString [
 		into: [ :tooltip :asso | tooltip copyReplaceAll: asso key with: asso value ]
 ]
 
-{ #category : #'as yet unclassified' }
-ChartData >> addFunction: aFunctionBlock color: aColor [
-	self dataSets addLast: (ChartDataSetFunction function: aFunctionBlock color: aColor)
-]
-
 { #category : #callback }
 ChartData >> at: anIndex ifPresent: aBlockClosure [
 	^ aBlockClosure
@@ -109,13 +104,6 @@ ChartData >> displayKeysAsPercent [
 	self keyDisplayBlock: [ :percent | (percent * 100) rounded asString, '%' ]
 ]
 
-{ #category : #options }
-ChartData >> enrichOptions: anOptionDictionary [
-	self singleValueTooltip ifNotNil: [ anOptionDictionary at: #tooltipTemplate put: self singleValueTooltipJs ].
-	self multiValueTooltip ifNotNil: [ anOptionDictionary at: #multiTooltipTemplate put: self multiValueTooltipJs ].
-	
-]
-
 { #category : #testing }
 ChartData >> hasData [
 	^ self xObjects isNotEmpty
@@ -152,21 +140,6 @@ ChartData >> labelFor: aString [
 	^ (self keyDisplayBlock value: aString)
 ]
 
-{ #category : #accessing }
-ChartData >> multiValueTooltip [
-	^ multiValueTooltip
-]
-
-{ #category : #accessing }
-ChartData >> multiValueTooltip: anObject [
-	multiValueTooltip := anObject
-]
-
-{ #category : #accessing }
-ChartData >> multiValueTooltipJs [
-	^ self adaptToolTip: self multiValueTooltip
-]
-
 { #category : #exchange }
 ChartData >> neoJsonOn: writer [
 	writer
@@ -180,21 +153,6 @@ ChartData >> neoJsonOn: writer [
 					(self dataSets
 						collect:
 							[ :aDataSet | aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ]) ]
-]
-
-{ #category : #accessing }
-ChartData >> singleValueTooltip [
-	^ singleValueTooltip
-]
-
-{ #category : #accessing }
-ChartData >> singleValueTooltip: anObject [
-	singleValueTooltip := anObject
-]
-
-{ #category : #accessing }
-ChartData >> singleValueTooltipJs [
-	^ self adaptToolTip: self singleValueTooltip
 ]
 
 { #category : #accessing }
