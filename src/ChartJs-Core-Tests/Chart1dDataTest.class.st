@@ -7,23 +7,12 @@ Class {
 	#category : #'ChartJs-Core-Tests'
 }
 
-{ #category : #helpers }
-Chart1dDataTest >> actualClass [
-	^ Chart1dData
-]
-
 { #category : #tests }
 Chart1dDataTest >> testHasData [
 	| datas |
-	datas := self actualClass
-		values:
-			{('Eating' -> 80).
-			('Drinking' -> 100).
-			('Sleeping' -> 70).
-			('Designing' -> 50).
-			('Coding' -> 40).
-			('Cycling' -> 10).
-			('Running' -> 25)}.
+	datas := Chart2dData
+						xObjects: {'Eating' . 'Drinking' .'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running' }
+						yObjects: { 80 . 100 . 70 . 50 . 40 . 10 . 25}.
 	self assert: datas hasData.
 	datas := self actualClass values: {}.
 	self deny: datas hasData

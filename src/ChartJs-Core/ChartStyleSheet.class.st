@@ -50,31 +50,22 @@ ChartStyleSheet >> chartType: aChartType [
 	self at: #chartType put: aChartType
 ]
 
-{ #category : #points }
-ChartStyleSheet >> fillColor [
-	^ self get: #fillColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> fillColor: aColor [
-	^ self at: #fillColor put: aColor
-]
-
 { #category : #helpers }
 ChartStyleSheet >> globalSetColor: aColor [
-	self flag: 'hack forChartJs'.
-	self fillColor: (aColor copy alpha: 0.2) forChartJs .
-	self pointColor: aColor  forChartJs .
-	self pointHighlightFill: Color white  forChartJs .
-	self pointHighlightStroke: aColor  forChartJs .
-	self pointStrokeColor: Color white  forChartJs .
-	self strokeColor: aColor  forChartJs .
+	self setOption: #pointBackgroundColor to: aColor.
+	self setOption: #pointBorderColor to: Color white .
+	self setOption: #pointHoverBackgroundColor to: Color white.
+	self setOption: #pointHoverBorderColor to: aColor.
+	self setOption: #borderColor to: aColor.
+	self setOption: #backgroundColor to: (aColor copy alpha: 0.2) .
+
 ]
 
 { #category : #helpers }
 ChartStyleSheet >> globalSetColorZone: aColor [
-	self fillColor: (aColor copy alpha: 0.8).
-	self strokeColor: aColor
+	self setOption: #borderColor to: aColor.
+	self setOption: #backgroundColor to: (aColor copy alpha: 0.8) .
+
 ]
 
 { #category : #scale }
@@ -100,46 +91,6 @@ ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjec
 		ifFalse: [ result ]
 ]
 
-{ #category : #points }
-ChartStyleSheet >> pointColor [
-	^ self get: #pointColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointColor: aColor [
-	^ self at: #pointColor put: aColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointHighlightFill [
-	^ self get: #pointHighlightFill
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointHighlightFill: aColor [
-	^ self at: #pointHighlightFill put: aColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointHighlightStroke [
-	^ self get: #pointHighlightStroke
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointHighlightStroke: aColor [
-	^ self at: #pointHighlightStroke put: aColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointStrokeColor [
-	^ self get: #pointStrokeColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointStrokeColor: aColor [
-	^ self at: #pointStrokeColor put: aColor
-]
-
 { #category : #scale }
 ChartStyleSheet >> scale [
 	self get: #scale
@@ -148,14 +99,4 @@ ChartStyleSheet >> scale [
 { #category : #points }
 ChartStyleSheet >> setOption: aSymbol to: aValue [
 	^ self at: aSymbol put: aValue
-]
-
-{ #category : #points }
-ChartStyleSheet >> strokeColor [
-	^ self get: #strokeColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> strokeColor: aColor [
-	^ self at: #strokeColor put: aColor
 ]

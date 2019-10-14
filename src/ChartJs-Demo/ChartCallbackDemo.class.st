@@ -24,8 +24,9 @@ ChartCallbackDemo >> renderChartJsComponentOn: html [
 		level: 3;
 		with: (selection ifNotNil: [ 'Selected value: ' , selection key asString , ' label: ' , selection value ] ifNil: [ 'Click on a part of the pie to select it' ]).
 		
-	chartData := (Chart1dData
-		values: {('Eating' -> 80). ('Drinking' -> 100). ('Sleeping' -> 70). ('Designing' -> 50). ('Coding' -> 40). ('Cycling' -> 10). ('Running' -> 25)})
+	chartData := (Chart2dData
+						xObjects: {'Eating' . 'Drinking' .'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running' }
+						yObjects: { 80 . 100 . 70 . 50 . 40 . 10 . 25})
 		title: [ :datas | 'Priority of actions' ];
 		singleValueTooltip: '<key> has an importance of <value>%';
 		chartType: ChartPie;

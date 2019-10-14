@@ -4,6 +4,11 @@ Class {
 	#category : #'ChartJs-Core-Types'
 }
 
+{ #category : #'as yet unclassified' }
+ComposableOption class >> beGlobal [
+	^ self new name: 'options'
+]
+
 { #category : #creation }
 ComposableOption class >> name: aString options: aCollectionOfOptions [
 	^ self new
