@@ -10,7 +10,7 @@ Class {
 { #category : #tests }
 Chart1dDataTest >> testHasData [
 	| datas |
-	datas := Chart2dData
+	datas := ChartData
 						xObjects: {'Eating' . 'Drinking' .'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running' }
 						yObjects: { 80 . 100 . 70 . 50 . 40 . 10 . 25}.
 	self assert: datas hasData.

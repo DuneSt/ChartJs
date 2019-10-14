@@ -27,7 +27,7 @@ Chart1dDemo >> renderChartJsComponentOn: html [
 	
 	renderingChartBlock := [ :canvas | 
 	| chartData |
-	chartData := (Chart2dData
+	chartData := (ChartData
 						xObjects: {'Eating' . 'Drinking' .'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running' }
 						yObjects: { 80 . 100 . 70 . 50 . 40 . 10 . 25})
 		title: [ :datas | 'Priority of actions' ];

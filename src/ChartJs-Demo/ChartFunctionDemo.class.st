@@ -16,5 +16,5 @@ ChartFunctionDemo class >> title [
 
 { #category : #rendering }
 ChartFunctionDemo >> renderChartJsComponentOn: html [
-	html render: (ChartJsComponent data: (Chart2dData xObjects: (1 to: 10) function: [ :x | x * (x + 1) ]))
+	html render: (ChartJsComponent data: (ChartData xObjects: (1 to: 10) function: [ :x | x * (x + 1) ]))
 ]

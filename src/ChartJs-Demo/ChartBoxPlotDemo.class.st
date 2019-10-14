@@ -17,7 +17,7 @@ ChartBoxPlotDemo class >> title [
 { #category : #rendering }
 ChartBoxPlotDemo >> renderChartJsComponentOn: html [
 	| chartData chartData2 |
-	chartData := Chart2dData
+	chartData := ChartData
 		xObjects: #(Guillaume Cyril)
 		function: [ :aPlayer | 
 			ChartBoxPlotData
@@ -30,7 +30,7 @@ ChartBoxPlotDemo >> renderChartJsComponentOn: html [
 	html render: (ChartJsComponent data: chartData).
 	
 	
-	chartData2 := Chart2dData
+	chartData2 := ChartData
 		xObjects:
 			{Collection.
 			TestCase}

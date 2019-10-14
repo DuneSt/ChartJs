@@ -17,7 +17,7 @@ ChartStyleDemo class >> title [
 { #category : #rendering }
 ChartStyleDemo >> renderChartJsComponentOn: html [
 	| chartData styleForPersons |
-	chartData := (Chart2dData
+	chartData := (ChartData
 		xObjects: {'Eating' . 'Drinking' . 'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running'}
 		multiYObjects: {('Guillaume' -> {65 . 59 . 90 . 81 . 56 . 55 . 40}). ('Cyril' -> {28 . 48 . 40 . 19 . 96 . 27 . 100})})
 		title: [ :sets | 'Spent time for ' , (sets collect: #name) asCommaStringAnd ];

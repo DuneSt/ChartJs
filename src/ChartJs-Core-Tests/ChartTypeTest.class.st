@@ -7,7 +7,7 @@ Class {
 { #category : #tests }
 ChartTypeTest >> testNeoJsonOn2dData [
 	| json chart stream colorConst |
-	chart := 	Chart2dData
+	chart := 	ChartData
 					xObjects: {'Eating' . 'Drinking'}
 					multiYObjects: { 'Cyril' -> #(28 48 )}.
 	chart dataSets do: [ :ds |

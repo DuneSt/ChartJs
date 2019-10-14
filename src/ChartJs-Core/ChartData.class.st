@@ -2,7 +2,7 @@
 I am the abstract class for chart data; defining the charttype to represent me, title and style
 "
 Class {
-	#name : #Chart2dData,
+	#name : #ChartData,
 	#superclass : #Object,
 	#instVars : [
 		'styleSheet',
@@ -19,7 +19,7 @@ Class {
 }
 
 { #category : #'instance-creation' }
-Chart2dData class >> xObjects: aCollectionOfObjects function: aBlock [
+ChartData class >> xObjects: aCollectionOfObjects function: aBlock [
 	^ self new
 		xObjects: aCollectionOfObjects;
 		dataSets: {(ChartDataSetFunction function: aBlock)};
@@ -27,7 +27,7 @@ Chart2dData class >> xObjects: aCollectionOfObjects function: aBlock [
 ]
 
 { #category : #'instance-creation' }
-Chart2dData class >> xObjects: aCollectionOfObjects function: aBlockClosure color: aColor [ 
+ChartData class >> xObjects: aCollectionOfObjects function: aBlockClosure color: aColor [ 
 	^ self new
 		xObjects: aCollectionOfObjects;
 		dataSets: {(ChartDataSetFunction function: aBlockClosure color: aColor)};
@@ -35,7 +35,7 @@ Chart2dData class >> xObjects: aCollectionOfObjects function: aBlockClosure colo
 ]
 
 { #category : #'instance-creation' }
-Chart2dData class >> xObjects: aCollectionOfObjects multiYObjects: aCollectionOfSequenceableCollectionOfObjectsToMap [
+ChartData class >> xObjects: aCollectionOfObjects multiYObjects: aCollectionOfSequenceableCollectionOfObjectsToMap [
 	^ self new
 		xObjects: aCollectionOfObjects;
 		dataSets:
@@ -45,7 +45,7 @@ Chart2dData class >> xObjects: aCollectionOfObjects multiYObjects: aCollectionOf
 ]
 
 { #category : #'instance-creation' }
-Chart2dData class >> xObjects: aCollectionOfObjects yObjects: aSequenceableCollectionOfObjectsToMap [
+ChartData class >> xObjects: aCollectionOfObjects yObjects: aSequenceableCollectionOfObjectsToMap [
 	^ self new
 		xObjects: aCollectionOfObjects;
 		dataSets: {(ChartDataSetSequence sequence: aSequenceableCollectionOfObjectsToMap)};
@@ -53,50 +53,50 @@ Chart2dData class >> xObjects: aCollectionOfObjects yObjects: aSequenceableColle
 ]
 
 { #category : #tooltip }
-Chart2dData >> adaptToolTip: aToolTipString [
+ChartData >> adaptToolTip: aToolTipString [
 	^ (Array with: '<label>' -> '<%= datasetLabel %>' with: '<value>' -> '<%= value %>' with: '<key>' -> '<%= label %>')
 		inject: aToolTipString
 		into: [ :tooltip :asso | tooltip copyReplaceAll: asso key with: asso value ]
 ]
 
 { #category : #'as yet unclassified' }
-Chart2dData >> addFunction: aFunctionBlock color: aColor [
+ChartData >> addFunction: aFunctionBlock color: aColor [
 	self dataSets addLast: (ChartDataSetFunction function: aFunctionBlock color: aColor)
 ]
 
 { #category : #callback }
-Chart2dData >> at: anIndex ifPresent: aBlockClosure [
+ChartData >> at: anIndex ifPresent: aBlockClosure [
 	^ aBlockClosure
 		value: (self xObjects at: anIndex) -> (self dataSets first atIndex: anIndex forValue: (self xObjects at: anIndex))
 ]
 
 { #category : #exchange }
-Chart2dData >> callBackValues [
+ChartData >> callBackValues [
 	^ self dataSets first sequence
 ]
 
 { #category : #chartType }
-Chart2dData >> chartType [
+ChartData >> chartType [
 	^ self styleSheet chartType
 ]
 
 { #category : #chartType }
-Chart2dData >> chartType: aChartType [
+ChartData >> chartType: aChartType [
 	^ self styleSheet chartType: aChartType
 ]
 
 { #category : #accessing }
-Chart2dData >> dataSets [
+ChartData >> dataSets [
 	^ dataSets
 ]
 
 { #category : #accessing }
-Chart2dData >> dataSets: anObject [
+ChartData >> dataSets: anObject [
 	dataSets := anObject asOrderedCollection
 ]
 
 { #category : #colors }
-Chart2dData >> dataSetsColors: aCollectionOfColors [
+ChartData >> dataSetsColors: aCollectionOfColors [
 	self
 		assert: aCollectionOfColors size = self dataSets size
 		description: 'The provided collection of colors must have one color per dataset'.
@@ -104,70 +104,70 @@ Chart2dData >> dataSetsColors: aCollectionOfColors [
 ]
 
 { #category : #presentation }
-Chart2dData >> displayKeysAsPercent [
+ChartData >> displayKeysAsPercent [
 	self keyDisplayBlock: [ :percent | (percent * 100) rounded asString, '%' ]
 ]
 
 { #category : #options }
-Chart2dData >> enrichOptions: anOptionDictionary [
+ChartData >> enrichOptions: anOptionDictionary [
 	self singleValueTooltip ifNotNil: [ anOptionDictionary at: #tooltipTemplate put: self singleValueTooltipJs ].
 	self multiValueTooltip ifNotNil: [ anOptionDictionary at: #multiTooltipTemplate put: self multiValueTooltipJs ].
 	
 ]
 
 { #category : #testing }
-Chart2dData >> hasData [
+ChartData >> hasData [
 	^ self xObjects isNotEmpty
 ]
 
 { #category : #testing }
-Chart2dData >> hasLegend [
+ChartData >> hasLegend [
 	^ self dataSets anySatisfy: #hasName
 ]
 
 { #category : #testing }
-Chart2dData >> hasTitle [
+ChartData >> hasTitle [
 	^ self title notNil
 ]
 
 { #category : #initialization }
-Chart2dData >> initialize [
+ChartData >> initialize [
 	self styleSheet: ChartStyleSheet default.
 	self chartType: ChartLine
 ]
 
 { #category : #accessing }
-Chart2dData >> keyDisplayBlock [
+ChartData >> keyDisplayBlock [
 	^ keyDisplayBlock ifNil: [ #yourself ]
 ]
 
 { #category : #accessing }
-Chart2dData >> keyDisplayBlock: anObject [
+ChartData >> keyDisplayBlock: anObject [
 	keyDisplayBlock := anObject
 ]
 
 { #category : #presentation }
-Chart2dData >> labelFor: aString [ 
+ChartData >> labelFor: aString [ 
 	^ (self keyDisplayBlock value: aString)
 ]
 
 { #category : #accessing }
-Chart2dData >> multiValueTooltip [
+ChartData >> multiValueTooltip [
 	^ multiValueTooltip
 ]
 
 { #category : #accessing }
-Chart2dData >> multiValueTooltip: anObject [
+ChartData >> multiValueTooltip: anObject [
 	multiValueTooltip := anObject
 ]
 
 { #category : #accessing }
-Chart2dData >> multiValueTooltipJs [
+ChartData >> multiValueTooltipJs [
 	^ self adaptToolTip: self multiValueTooltip
 ]
 
 { #category : #exchange }
-Chart2dData >> neoJsonOn: writer [
+ChartData >> neoJsonOn: writer [
 	writer
 		writeMapStreamingDo: [ :jsonMapWriter | 
 			jsonMapWriter
@@ -182,59 +182,59 @@ Chart2dData >> neoJsonOn: writer [
 ]
 
 { #category : #accessing }
-Chart2dData >> singleValueTooltip [
+ChartData >> singleValueTooltip [
 	^ singleValueTooltip
 ]
 
 { #category : #accessing }
-Chart2dData >> singleValueTooltip: anObject [
+ChartData >> singleValueTooltip: anObject [
 	singleValueTooltip := anObject
 ]
 
 { #category : #accessing }
-Chart2dData >> singleValueTooltipJs [
+ChartData >> singleValueTooltipJs [
 	^ self adaptToolTip: self singleValueTooltip
 ]
 
 { #category : #accessing }
-Chart2dData >> styleSheet [
+ChartData >> styleSheet [
 	^ styleSheet
 ]
 
 { #category : #accessing }
-Chart2dData >> styleSheet: anObject [
+ChartData >> styleSheet: anObject [
 	styleSheet := anObject
 ]
 
 { #category : #accessing }
-Chart2dData >> title [
+ChartData >> title [
 
 	^ title isBlock ifTrue: [ title value: self dataSets ] ifFalse: [ title ]
 ]
 
 { #category : #accessing }
-Chart2dData >> title: aBlockOrTitle [
+ChartData >> title: aBlockOrTitle [
 	"You can provide a title String or a block that will be executed with the collection of dataSets as parameter"
 	title:= aBlockOrTitle
 ]
 
 { #category : #accessing }
-Chart2dData >> valueDisplayBlock [
+ChartData >> valueDisplayBlock [
 	self flag: #TODO. "move this property at the dataset level to have different valueDisplayBlock for each dataset"
 	^ valueDisplayBlock ifNil: [ #yourself ]
 ]
 
 { #category : #accessing }
-Chart2dData >> valueDisplayBlock: anObject [
+ChartData >> valueDisplayBlock: anObject [
 	valueDisplayBlock := anObject
 ]
 
 { #category : #accessing }
-Chart2dData >> xObjects [
+ChartData >> xObjects [
 	^ xObjects
 ]
 
 { #category : #accessing }
-Chart2dData >> xObjects: anObject [
+ChartData >> xObjects: anObject [
 	xObjects := anObject
 ]

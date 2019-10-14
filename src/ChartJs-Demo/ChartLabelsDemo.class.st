@@ -17,7 +17,7 @@ ChartLabelsDemo class >> title [
 { #category : #rendering }
 ChartLabelsDemo >> renderChartJsComponentOn: html [
 	| chartData |
-	chartData := Chart2dData
+	chartData := ChartData
 		xObjects: WADecoration allSubclasses
 		function: #methods.
 	chartData

@@ -9,7 +9,7 @@ Class {
 
 { #category : #helpers }
 Chart2dDataTest >> actualClass [
-	^ Chart2dData
+	^ ChartData
 ]
 
 { #category : #tests }
