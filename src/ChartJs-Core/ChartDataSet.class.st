@@ -54,6 +54,11 @@ ChartDataSet >> neoJsonObjectFor: aCollectionOfXObjects block: aBlock [
 	^ dico
 ]
 
+{ #category : #initialization }
+ChartDataSet >> setDefaultOptions: defaultOptions [
+	defaultOptions do: [ :opt | self setOption: opt key to: opt value ]
+]
+
 { #category : #exchange }
 ChartDataSet >> setOption: aSymbol to: aValue [
 	self styleSheet setOption: aSymbol to: aValue

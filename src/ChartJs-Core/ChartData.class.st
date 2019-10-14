@@ -92,7 +92,8 @@ ChartData >> dataSets [
 
 { #category : #accessing }
 ChartData >> dataSets: anObject [
-	dataSets := anObject asOrderedCollection
+	anObject do: [ :dataSet | dataSet setDefaultOptions: self chartType defaultOptions].
+	dataSets := anObject asOrderedCollection.
 ]
 
 { #category : #colors }

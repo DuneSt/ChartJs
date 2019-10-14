@@ -12,6 +12,11 @@ ChartLine class >> dataFunction [
 	^ 'points'
 ]
 
+{ #category : #options }
+ChartLine class >> defaultOptions [ 
+	^ { #fill -> false }
+]
+
 { #category : #ChartJs }
 ChartLine class >> eventsCode [
 	^ 'getPointsAtEvent(evt)'

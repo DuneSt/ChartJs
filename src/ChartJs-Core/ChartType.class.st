@@ -12,6 +12,11 @@ ChartType class >> dataFunction [
 	^ self subclassResponsibility 
 ]
 
+{ #category : #options }
+ChartType class >> defaultOptions [
+	^#()
+]
+
 { #category : #ChartJs }
 ChartType class >> eventsCode [
 	^ self subclassResponsibility 
