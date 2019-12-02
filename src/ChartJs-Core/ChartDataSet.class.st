@@ -48,9 +48,10 @@ ChartDataSet >> neoJsonObjectFor: aCollectionOfXObjects block: aBlock [
 	self flag: 'option for fill: "dico at: #fill put: true." '.
 	dico := Dictionary new.
 	dico at: #label put: self name.
-	dico at: #data put: (self valuesFor: aCollectionOfXObjects block: aBlock).
-	
-	dico addAll: (self styleSheet attributes).
+	dico
+		at: #data
+		put: (self valuesFor: aCollectionOfXObjects block: aBlock).
+	dico addAll: self styleSheet attributes.
 	^ dico
 ]
 

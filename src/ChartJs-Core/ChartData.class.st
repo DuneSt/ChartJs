@@ -75,6 +75,11 @@ ChartData >> chartType [
 	^ self styleSheet chartType
 ]
 
+{ #category : #initialization }
+ChartData >> chartType1d [
+	^ #('Donut' 'Pie' 'Polar') asOrderedCollection
+]
+
 { #category : #chartType }
 ChartData >> chartType: aChartType [
 	^ self styleSheet chartType: aChartType
@@ -142,6 +147,7 @@ ChartData >> labelFor: aString [
 
 { #category : #exchange }
 ChartData >> neoJsonOn: writer [
+	self resetBackgroundwithDataSize.
 	writer
 		writeMapStreamingDo: [ :jsonMapWriter | 
 			jsonMapWriter
@@ -150,9 +156,22 @@ ChartData >> neoJsonOn: writer [
 			jsonMapWriter
 				writeKey: #datasets
 				value:
-					(self dataSets
-						collect:
-							[ :aDataSet | aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ]) ]
+					self resetBackgroundwithDataSize ].
+					self halt.
+	
+]
+
+{ #category : #colors }
+ChartData >> resetBackgroundwithDataSize [
+	| dic |
+	dic := self dataSets
+		collect:
+			[ :aDataSet | aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ].
+	(self chartType1d includes: self chartType forChartJS)
+		ifTrue: [ dic
+				at: #backgroundColor
+				put: (RTCPQualitative new colors: self xObjects size + 1) ].
+	^ dic
 ]
 
 { #category : #accessing }

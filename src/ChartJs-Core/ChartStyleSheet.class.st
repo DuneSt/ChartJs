@@ -21,6 +21,11 @@ ChartStyleSheet class >> default [
 		yourself
 ]
 
+{ #category : #accessing }
+ChartStyleSheet >> backgroundColor [
+	^ self get: #backgroundColor
+]
+
 { #category : #'as yet unclassified' }
 ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: values label: aLabel [
 	self flag: 'Only works for color style. How to have other options?'.
@@ -89,6 +94,14 @@ ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjec
 	^ (result isBlock or: [ result isSymbol ])
 		ifTrue: [ result chartJsCull: aCollectionOfXObjects cull: values cull: aLabel ]
 		ifFalse: [ result ]
+]
+
+{ #category : #initialization }
+ChartStyleSheet >> resetBackgroundwithDataSize: aNumber [
+	(self chartType1d includes: self chartType forChartJS)
+		ifTrue: [ self
+				setOption: #backgroundColor
+				to: (RTCPQualitative new colors: aNumber + 1) ]
 ]
 
 { #category : #scale }
