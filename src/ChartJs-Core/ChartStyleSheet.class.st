@@ -26,10 +26,20 @@ ChartStyleSheet >> backgroundColor [
 	^ self get: #backgroundColor
 ]
 
+{ #category : #accessing }
+ChartStyleSheet >> borderColor [
+	^ self get: #borderColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> borderColor: aColor [
+	self at: #borderColor put: aColor
+]
+
 { #category : #'as yet unclassified' }
 ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: values label: aLabel [
 	self flag: 'Only works for color style. How to have other options?'.
-	^ #(#fillColor #strokeColor #pointColor "#pointStrokeColor #pointHighlightFill #pointHighlightStroke")
+	^ #(#fill #borderColor #backgroundColor #pointColor #pointBackgroundColor  #pointHoverBorderColor pointBorderColor #pointBackgroundColor)
 		inject: Dictionary new
 		into: [ :dico :aStyleSelector | 
 			[ dico
@@ -50,20 +60,35 @@ ChartStyleSheet >> chartType [
 	^ self get: #chartType
 ]
 
+{ #category : #initialization }
+ChartStyleSheet >> chartType1d [
+	^ #('Doughnut' 'Pie' 'PolarArea') asOrderedCollection
+]
+
 { #category : #points }
 ChartStyleSheet >> chartType: aChartType [
 	self at: #chartType put: aChartType
 ]
 
+{ #category : #attributes }
+ChartStyleSheet >> fill [
+	^ self get: #fill
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> fillColor: aColor [
+	self at: #fillColor put: aColor
+]
+
 { #category : #helpers }
 ChartStyleSheet >> globalSetColor: aColor [
 	self setOption: #pointBackgroundColor to: aColor.
-	self setOption: #pointBorderColor to: Color white .
+	self setOption: #pointBorderColor to: Color white.
 	self setOption: #pointHoverBackgroundColor to: Color white.
 	self setOption: #pointHoverBorderColor to: aColor.
 	self setOption: #borderColor to: aColor.
-	self setOption: #backgroundColor to: (aColor copy alpha: 0.2) .
-
+	self setOption: #fill to: false.
+	self setOption: #backgroundColor to: (aColor copy alpha: 0.2)
 ]
 
 { #category : #helpers }
@@ -94,6 +119,46 @@ ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjec
 	^ (result isBlock or: [ result isSymbol ])
 		ifTrue: [ result chartJsCull: aCollectionOfXObjects cull: values cull: aLabel ]
 		ifFalse: [ result ]
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointBackgroundColor [
+	^ self get: #pointBackgroundColor
+]
+
+{ #category : #'as yet unclassified' }
+ChartStyleSheet >> pointBackgroundColor: aColor [
+	self at:  #pointBackgroundColor put: aColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointBorderColor [
+	^ self get: #pointBorderColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointBorderColor: aColor [
+	self at: #pointBorderColor put: aColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointColor [
+	^ self get: #pointColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointHoverBackgroundColor: aColor [
+	self at:  #pointHoverBackgroundColor put: aColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointHoverBorderColor [
+	^ self get: #pointHoverBorderColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointHoverBorderColor: aColorOrBlock [
+	self at: #pointHoverBorderColor put: aColorOrBlock value
 ]
 
 { #category : #initialization }

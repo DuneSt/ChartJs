@@ -51,7 +51,15 @@ ChartDataSet >> neoJsonObjectFor: aCollectionOfXObjects block: aBlock [
 	dico
 		at: #data
 		put: (self valuesFor: aCollectionOfXObjects block: aBlock).
-	dico addAll: self styleSheet attributes.
+	dico
+		addAll:
+			(dico
+				addAll:
+					(self styleSheet
+						charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects
+						values: (dico at: #data)
+						label: self name)).
+	"self styleSheet attributes."
 	^ dico
 ]
 
