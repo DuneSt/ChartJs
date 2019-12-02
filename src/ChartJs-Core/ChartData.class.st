@@ -147,31 +147,17 @@ ChartData >> labelFor: aString [
 
 { #category : #exchange }
 ChartData >> neoJsonOn: writer [
-	self resetBackgroundwithDataSize.
-	writer
-		writeMapStreamingDo: [ :jsonMapWriter | 
-			jsonMapWriter
-				writeKey: #labels
-				value: (xObjects collect: [ :aXObject | self labelFor: aXObject ]).
-			jsonMapWriter
-				writeKey: #datasets
-				value:
-					self resetBackgroundwithDataSize ].
-					self halt.
-	
+  writer writeMapStreamingDo: [:jsonMapWriter |  jsonMapWriter writeKey: #labels value: (xObjects collect: [:aXObject |  self labelFor: aXObject ]).
+        jsonMapWriter writeKey: #datasets value: self resetBackgroundwithDataSize ]
 ]
 
 { #category : #colors }
 ChartData >> resetBackgroundwithDataSize [
-	| dic |
-	dic := self dataSets
-		collect:
-			[ :aDataSet | aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ].
-	(self chartType1d includes: self chartType forChartJS)
-		ifTrue: [ dic
-				at: #backgroundColor
-				put: (RTCPQualitative new colors: self xObjects size + 1) ].
-	^ dic
+  | dic |
+  dic := self dataSets collect: [:aDataSet |  aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ].
+  (self chartType1d includes: self chartType forChartJS) ifTrue: [ dic anyOne at: #backgroundColor put: (RTCPQualitative new colors: self xObjects size + 1) ].
+
+  ^dic
 ]
 
 { #category : #accessing }
