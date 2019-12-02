@@ -19,7 +19,7 @@ ChartRadar class >> eventsCode [
 
 { #category : #ChartJs }
 ChartRadar class >> forChartJS [
-	^ 'Radar'
+	^ 'radar'
 ]
 
 { #category : #testing }

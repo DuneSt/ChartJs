@@ -19,7 +19,7 @@ ChartPolar class >> eventsCode [
 
 { #category : #ChartJs }
 ChartPolar class >> forChartJS [
-	^ 'PolarArea'
+	^ 'polarArea'
 ]
 
 { #category : #ChartJs }

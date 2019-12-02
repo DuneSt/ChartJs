@@ -149,7 +149,7 @@ ChartJsComponent >> printDiagramCreationOn: s [
 		<< 'var myChart = new Chart(ctx, {';
 		cr;
 		<< 'type:"';
-		<< data chartType forChartJS asLowercase;
+		<< data chartType forChartJS ;
 		<< '",data:';
 		cr.
 	(NeoJSONWriter on: s) nextPut: self data.

@@ -24,7 +24,7 @@ ChartLine class >> eventsCode [
 
 { #category : #ChartJs }
 ChartLine class >> forChartJS [
-	^ 'Line'
+	^ 'line'
 ]
 
 { #category : #testing }

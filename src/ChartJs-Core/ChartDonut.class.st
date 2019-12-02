@@ -19,7 +19,7 @@ ChartDonut class >> eventsCode [
 
 { #category : #ChartJs }
 ChartDonut class >> forChartJS [
-	^ 'Doughnut'
+	^ 'doughnut'
 ]
 
 { #category : #ChartJs }

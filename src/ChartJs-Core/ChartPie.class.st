@@ -19,7 +19,7 @@ ChartPie class >> eventsCode [
 
 { #category : #ChartJs }
 ChartPie class >> forChartJS [
-	^ 'Pie'
+	^ 'pie'
 ]
 
 { #category : #ChartJs }

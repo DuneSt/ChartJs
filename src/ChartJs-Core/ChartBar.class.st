@@ -19,7 +19,7 @@ ChartBar class >> eventsCode [
 
 { #category : #ChartJs }
 ChartBar class >> forChartJS [
-	^ 'Bar'
+	^ 'bar'
 ]
 
 { #category : #testing }

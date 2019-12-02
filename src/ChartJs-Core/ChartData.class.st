@@ -77,7 +77,7 @@ ChartData >> chartType [
 
 { #category : #initialization }
 ChartData >> chartType1d [
-	^ #('Donut' 'Pie' 'Polar') asOrderedCollection
+	^ #('doughnut' 'pie' 'polarArea') asOrderedCollection
 ]
 
 { #category : #chartType }
