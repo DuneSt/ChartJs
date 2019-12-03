@@ -19,7 +19,7 @@ ChartBoxPlot class >> eventsCode [
 
 { #category : #ChartJs }
 ChartBoxPlot class >> forChartJS [
-	^ 'boxPlot'
+	^ 'boxplot'
 ]
 
 { #category : #testing }
