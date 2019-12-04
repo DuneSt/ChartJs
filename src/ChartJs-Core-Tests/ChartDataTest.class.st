@@ -2,18 +2,18 @@
 A Chart2dDataTest is a test class for testing the behavior of Chart2dData
 "
 Class {
-	#name : #Chart2dDataTest,
+	#name : #ChartDataTest,
 	#superclass : #ChartDataAbstractTest,
 	#category : #'ChartJs-Core-Tests'
 }
 
 { #category : #helpers }
-Chart2dDataTest >> actualClass [
+ChartDataTest >> actualClass [
 	^ ChartData
 ]
 
 { #category : #tests }
-Chart2dDataTest >> testHasData [
+ChartDataTest >> testHasData [
 	| datas |
 	datas := self actualClass
 		xObjects: {'Eating' . 'Drinking' . 'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running'}

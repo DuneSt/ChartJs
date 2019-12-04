@@ -27,6 +27,11 @@ ChartStyleSheet >> backgroundColor [
 ]
 
 { #category : #accessing }
+ChartStyleSheet >> backgroundColor: aColor [
+	self at: #backgroundColor put: aColor
+]
+
+{ #category : #accessing }
 ChartStyleSheet >> borderColor [
 	^ self get: #borderColor
 ]
