@@ -19,7 +19,7 @@ ChartType class >> defaultOptions [
 
 { #category : #ChartJs }
 ChartType class >> eventsCode [
-	^ self subclassResponsibility 
+	^ 'getElementAtEvent(evt)'
 ]
 
 { #category : #ChartJs }

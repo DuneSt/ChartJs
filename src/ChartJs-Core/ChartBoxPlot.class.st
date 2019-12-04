@@ -13,11 +13,6 @@ ChartBoxPlot class >> dataFunction [
 ]
 
 { #category : #ChartJs }
-ChartBoxPlot class >> eventsCode [
-	^ 'getBarsAtEvent(evt)'
-]
-
-{ #category : #ChartJs }
 ChartBoxPlot class >> forChartJS [
 	^ 'boxplot'
 ]

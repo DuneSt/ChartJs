@@ -18,11 +18,6 @@ ChartLine class >> defaultOptions [
 ]
 
 { #category : #ChartJs }
-ChartLine class >> eventsCode [
-	^ 'getPointsAtEvent(evt)'
-]
-
-{ #category : #ChartJs }
 ChartLine class >> forChartJS [
 	^ 'line'
 ]

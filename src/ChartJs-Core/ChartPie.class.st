@@ -13,11 +13,6 @@ ChartPie class >> dataFunction [
 ]
 
 { #category : #ChartJs }
-ChartPie class >> eventsCode [
-	^ 'getSegmentsAtEvent(evt)'
-]
-
-{ #category : #ChartJs }
 ChartPie class >> forChartJS [
 	^ 'pie'
 ]
