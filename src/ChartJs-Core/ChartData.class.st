@@ -127,7 +127,7 @@ ChartData >> hasTitle [
 { #category : #initialization }
 ChartData >> initialize [
 	self styleSheet: ChartStyleSheet default.
-	self chartType: ChartLine
+	self chartType: ChartLine.
 ]
 
 { #category : #accessing }

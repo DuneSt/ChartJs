@@ -29,7 +29,8 @@ ChartDataSet >> hasName [
 { #category : #initialization }
 ChartDataSet >> initialize [
 	super initialize.
-	self styleSheet: ChartStyleSheet charDataSetDefault
+	self styleSheet: ChartStyleSheet charDataSetDefault.
+	name:=''.
 ]
 
 { #category : #accessing }

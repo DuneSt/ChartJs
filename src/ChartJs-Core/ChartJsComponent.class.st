@@ -101,12 +101,12 @@ ChartJsComponent >> hasCallBack [
 { #category : #rendering }
 ChartJsComponent >> manageCallBackIn: html canvas: canvas inDiv: divId [
 	self hasCallBack
-		ifTrue: [ 
-			| cb |
+		ifTrue: [ | cb |
 			cb := canvas
 				storeCallback:
 					(WAValuesCallback
-						on: [ :nodeOrAssociation | self value cull: nodeOrAssociation value cull: nodeOrAssociation key ]
+						on:
+							[ :nodeOrAssociation | self value cull: nodeOrAssociation value cull: nodeOrAssociation key ]
 						values: self data).
 			html
 				script:
@@ -161,6 +161,23 @@ ChartJsComponent >> printDiagramCreationOn: s [
 ]
 
 { #category : #rendering }
+ChartJsComponent >> printDiagramCreationOn: s inDiv: divId [
+	(s << 'var myChart' << divId asString)
+		<< ' = new Chart(ctx, {';
+		cr;
+		<< 'type:"';
+		<< data chartType forChartJS;
+		<< '",data:';
+		cr.
+	(NeoJSONWriter on: s) nextPut: self data.
+	s
+		cr;
+		<< ',options:'.
+	self printOptionsOn: s inHtml: nil canvas: nil.
+	s << '});'
+]
+
+{ #category : #rendering }
 ChartJsComponent >> printLegendOn: s forDiv: divId [
 	^ self data hasLegend
 		ifTrue: [ 
@@ -202,7 +219,7 @@ ChartJsComponent >> renderContentOn: html [
 								streamContents: [ :s | 
 									self printDiagramContextCreationOn: s inDiv: divId.
 									s cr.
-									self printDiagramCreationOn: s ]) ]
+									self printDiagramCreationOn: s inDiv: divId ]) ]
 				ifFalse: [ html div
 						class: 'mdl-alert mdl-alert__danger';
 						style: 'color: red; text-align: center; margin: auto;';
