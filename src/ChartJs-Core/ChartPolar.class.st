@@ -13,13 +13,8 @@ ChartPolar class >> dataFunction [
 ]
 
 { #category : #ChartJs }
-ChartPolar class >> eventsCode [
-	^ 'getSegmentsAtEvent(evt)'
-]
-
-{ #category : #ChartJs }
 ChartPolar class >> forChartJS [
-	^ 'PolarArea'
+	^ 'polarArea'
 ]
 
 { #category : #ChartJs }

@@ -9,17 +9,12 @@ Class {
 
 { #category : #ChartJs }
 ChartRadar class >> dataFunction [
-	^ 'points'
-]
-
-{ #category : #ChartJs }
-ChartRadar class >> eventsCode [
-	^ 'getPointsAtEvent(evt)'
+	^ 'segments'
 ]
 
 { #category : #ChartJs }
 ChartRadar class >> forChartJS [
-	^ 'Radar'
+	^ 'radar'
 ]
 
 { #category : #testing }

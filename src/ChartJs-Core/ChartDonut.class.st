@@ -9,17 +9,12 @@ Class {
 
 { #category : #ChartJs }
 ChartDonut class >> dataFunction [
-	^ 'segments'
-]
-
-{ #category : #ChartJs }
-ChartDonut class >> eventsCode [
-	^ 'getSegmentsAtEvent(evt)'
+	^ 'elements'
 ]
 
 { #category : #ChartJs }
 ChartDonut class >> forChartJS [
-	^ 'Doughnut'
+	^ 'doughnut'
 ]
 
 { #category : #ChartJs }

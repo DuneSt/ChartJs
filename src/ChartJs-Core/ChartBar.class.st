@@ -13,13 +13,8 @@ ChartBar class >> dataFunction [
 ]
 
 { #category : #ChartJs }
-ChartBar class >> eventsCode [
-	^ 'getBarsAtEvent(evt)'
-]
-
-{ #category : #ChartJs }
 ChartBar class >> forChartJS [
-	^ 'Bar'
+	^ 'bar'
 ]
 
 { #category : #testing }

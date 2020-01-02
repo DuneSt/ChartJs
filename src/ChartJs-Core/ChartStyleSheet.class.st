@@ -21,12 +21,40 @@ ChartStyleSheet class >> default [
 		yourself
 ]
 
+{ #category : #accessing }
+ChartStyleSheet >> backgroundColor [
+	^ self get: #backgroundColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> backgroundColor: aColor [
+	self at: #backgroundColor put: aColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> borderColor [
+	^ self get: #borderColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> borderColor: aColor [
+	self at: #borderColor put: aColor
+]
+
 { #category : #'as yet unclassified' }
 ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: values label: aLabel [
-	^ #(#fillColor #strokeColor #pointColor #pointStrokeColor #pointHighlightFill #pointHighlightStroke)
+	self flag: 'Only works for color style. How to have other options?'.
+	^ #(#fill #borderColor #backgroundColor #pointColor #pointBackgroundColor  #pointHoverBorderColor pointBorderColor #pointBackgroundColor)
 		inject: Dictionary new
 		into: [ :dico :aStyleSelector | 
-			[ dico at: aStyleSelector put: (self obtainValue: aStyleSelector value forKeys: aCollectionOfXObjects andValues: values andLabel: aLabel) forChartJs ]
+			[ dico
+				at: aStyleSelector
+				put:
+					(self
+						obtainValue: aStyleSelector value
+						forKeys: aCollectionOfXObjects
+						andValues: values
+						andLabel: aLabel) forChartJs ]
 				on: NotFound
 				do: [  ].
 			dico ]
@@ -37,35 +65,42 @@ ChartStyleSheet >> chartType [
 	^ self get: #chartType
 ]
 
+{ #category : #initialization }
+ChartStyleSheet >> chartType1d [
+	^ #('Doughnut' 'Pie' 'PolarArea') asOrderedCollection
+]
+
 { #category : #points }
 ChartStyleSheet >> chartType: aChartType [
 	self at: #chartType put: aChartType
 ]
 
-{ #category : #points }
-ChartStyleSheet >> fillColor [
-	^ self get: #fillColor
+{ #category : #attributes }
+ChartStyleSheet >> fill [
+	^ self get: #fill
 ]
 
-{ #category : #points }
+{ #category : #accessing }
 ChartStyleSheet >> fillColor: aColor [
-	^ self at: #fillColor put: aColor
+	self at: #fillColor put: aColor
 ]
 
 { #category : #helpers }
 ChartStyleSheet >> globalSetColor: aColor [
-	self fillColor: (aColor copy alpha: 0.2).
-	self pointColor: aColor.
-	self pointHighlightFill: Color white.
-	self pointHighlightStroke: aColor.
-	self pointStrokeColor: Color white.
-	self strokeColor: aColor
+	self setOption: #pointBackgroundColor to: aColor.
+	self setOption: #pointBorderColor to: Color white.
+	self setOption: #pointHoverBackgroundColor to: Color white.
+	self setOption: #pointHoverBorderColor to: aColor.
+	self setOption: #borderColor to: aColor.
+	self setOption: #fill to: false.
+	self setOption: #backgroundColor to: (aColor copy alpha: 0.2)
 ]
 
 { #category : #helpers }
 ChartStyleSheet >> globalSetColorZone: aColor [
-	self fillColor: (aColor copy alpha: 0.8).
-	self strokeColor: aColor
+	self setOption: #borderColor to: aColor.
+	self setOption: #backgroundColor to: (aColor copy alpha: 0.8) .
+
 ]
 
 { #category : #scale }
@@ -91,44 +126,52 @@ ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjec
 		ifFalse: [ result ]
 ]
 
-{ #category : #points }
+{ #category : #accessing }
+ChartStyleSheet >> pointBackgroundColor [
+	^ self get: #pointBackgroundColor
+]
+
+{ #category : #'as yet unclassified' }
+ChartStyleSheet >> pointBackgroundColor: aColor [
+	self at:  #pointBackgroundColor put: aColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointBorderColor [
+	^ self get: #pointBorderColor
+]
+
+{ #category : #accessing }
+ChartStyleSheet >> pointBorderColor: aColor [
+	self at: #pointBorderColor put: aColor
+]
+
+{ #category : #accessing }
 ChartStyleSheet >> pointColor [
 	^ self get: #pointColor
 ]
 
-{ #category : #points }
-ChartStyleSheet >> pointColor: aColor [
-	^ self at: #pointColor put: aColor
+{ #category : #accessing }
+ChartStyleSheet >> pointHoverBackgroundColor: aColor [
+	self at:  #pointHoverBackgroundColor put: aColor
 ]
 
-{ #category : #points }
-ChartStyleSheet >> pointHighlightFill [
-	^ self get: #pointHighlightFill
+{ #category : #accessing }
+ChartStyleSheet >> pointHoverBorderColor [
+	^ self get: #pointHoverBorderColor
 ]
 
-{ #category : #points }
-ChartStyleSheet >> pointHighlightFill: aColor [
-	^ self at: #pointHighlightFill put: aColor
+{ #category : #accessing }
+ChartStyleSheet >> pointHoverBorderColor: aColorOrBlock [
+	self at: #pointHoverBorderColor put: aColorOrBlock value
 ]
 
-{ #category : #points }
-ChartStyleSheet >> pointHighlightStroke [
-	^ self get: #pointHighlightStroke
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointHighlightStroke: aColor [
-	^ self at: #pointHighlightStroke put: aColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointStrokeColor [
-	^ self get: #pointStrokeColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> pointStrokeColor: aColor [
-	^ self at: #pointStrokeColor put: aColor
+{ #category : #initialization }
+ChartStyleSheet >> resetBackgroundwithDataSize: aNumber [
+	(self chartType1d includes: self chartType forChartJS)
+		ifTrue: [ self
+				setOption: #backgroundColor
+				to: (RTCPQualitative new colors: aNumber + 1) ]
 ]
 
 { #category : #scale }
@@ -137,11 +180,6 @@ ChartStyleSheet >> scale [
 ]
 
 { #category : #points }
-ChartStyleSheet >> strokeColor [
-	^ self get: #strokeColor
-]
-
-{ #category : #points }
-ChartStyleSheet >> strokeColor: aColor [
-	^ self at: #strokeColor put: aColor
+ChartStyleSheet >> setOption: aSymbol to: aValue [
+	^ self at: aSymbol put: aValue
 ]

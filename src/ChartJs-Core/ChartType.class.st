@@ -12,9 +12,14 @@ ChartType class >> dataFunction [
 	^ self subclassResponsibility 
 ]
 
+{ #category : #options }
+ChartType class >> defaultOptions [
+	^#()
+]
+
 { #category : #ChartJs }
 ChartType class >> eventsCode [
-	^ self subclassResponsibility 
+	^ 'getElementAtEvent(evt)'
 ]
 
 { #category : #ChartJs }
@@ -30,4 +35,12 @@ ChartType class >> isFor1DValues [
 { #category : #testing }
 ChartType class >> isMultiDataSet [
 	^ false
+]
+
+{ #category : #conversion }
+ChartType >> neoJsonOn: writer [
+	writer
+		writeMapStreamingDo: [ :jsonMapWriter | 
+			jsonMapWriter writeKey: #type value: self class forChartJS.
+		]
 ]

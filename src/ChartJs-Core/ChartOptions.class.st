@@ -16,11 +16,11 @@ Class {
 ChartOptions >> asDictionary [
 	| optionDictionary |
 	optionDictionary := Dictionary new.
-	optionDictionary
+	"optionDictionary
 		at: #scales
 		put:
 			{(#xAxes -> self xAxis).
-			(#yAxes -> self yAxis)} asDictionary.
+			(#yAxes -> self yAxis)} asDictionary."
 	^ optionDictionary
 ]
 

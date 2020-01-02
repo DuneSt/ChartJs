@@ -17,26 +17,42 @@ ChartStyleDemo class >> title [
 { #category : #rendering }
 ChartStyleDemo >> renderChartJsComponentOn: html [
 	| chartData styleForPersons |
-	chartData := (Chart2dData
-		xObjects: {'Eating' . 'Drinking' . 'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running'}
-		multiYObjects: {('Guillaume' -> {65 . 59 . 90 . 81 . 56 . 55 . 40}). ('Cyril' -> {28 . 48 . 40 . 19 . 96 . 27 . 100})})
+	chartData := (ChartData
+		xObjects:
+		{'Eating' . 'Drinking' . 'Sleeping' . 'Designing' . 'Coding' . 'Cycling'.
+	'Running'}
+		multiYObjects:
+		{('Guillaume' -> {65 . 59 . 90 . 81 . 56 . 55 . 40}).
+			('Cyril' -> {28 . 48 . 40 . 19 . 96 . 27 . 100})})
 		title: [ :sets | 'Spent time for ' , (sets collect: #name) asCommaStringAnd ];
 		chartType: ChartLine;
 		yourself.
-		
 	styleForPersons := Dictionary
-		with: 'Guillaume' -> (Dictionary with: #pointColor -> Color green with: #strokeColor -> Color green with: #fillColor -> Color lightGreen)
-		with: 'Cyril' -> (Dictionary with: #pointColor -> Color blue with: #strokeColor -> Color blue with: #fillColor -> Color lightBlue).
-		
+		with:
+			'Guillaume'
+				->
+					(Dictionary
+						with: #pointBackgroundColor -> Color green
+						with: #borderColor -> Color green
+						with: #fillColor -> Color lightGreen)
+		with:
+			'Cyril'
+				->
+					(Dictionary
+						with: #pointBackgroundColor -> Color blue
+						with: #borderColor -> Color blue
+						with: #fillColor -> Color lightBlue).
 	chartData dataSets
 		do: [ :set | 
 			set styleSheet
-				pointColor: [ :keys :values :label | (styleForPersons at: label) at: #pointColor ];
-				strokeColor: [ :keys :values :label | (styleForPersons at: label) at: #strokeColor ];
-				pointStrokeColor: Color white;
-				fillColor: [ :keys :values :label | ((styleForPersons at: label) at: #fillColor) alpha: 0.3 ];
-				pointHighlightFill: Color pink;
-				pointHighlightStroke: Color red ].
-			
+				pointBackgroundColor:
+						[ :keys :values :label | (styleForPersons at: label) at: #pointBackgroundColor ];
+				borderColor:
+						[ :keys :values :label | (styleForPersons at: label) at: #borderColor ];
+				pointBorderColor: Color white;
+				fillColor:
+						[ :keys :values :label | ((styleForPersons at: label) at: #fillColor) alpha: 0.3 ];
+				pointHoverBackgroundColor: Color pink;
+				pointHoverBorderColor: Color red ].
 	html render: (ChartJsComponent data: chartData)
 ]

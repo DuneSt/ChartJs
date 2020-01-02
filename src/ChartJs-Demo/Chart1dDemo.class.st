@@ -27,9 +27,10 @@ Chart1dDemo >> renderChartJsComponentOn: html [
 	
 	renderingChartBlock := [ :canvas | 
 	| chartData |
-	chartData := (Chart1dData values: {('Eating' -> 80). ('Drinking' -> 100). ('Sleeping' -> 70). ('Designing' -> 50). ('Coding' -> 40). ('Cycling' -> 10). ('Running' -> 25)})
+	chartData := (ChartData
+						xObjects: {'Eating' . 'Drinking' .'Sleeping' . 'Designing' . 'Coding' . 'Cycling' . 'Running' }
+						yObjects: { 80 . 100 . 70 . 50 . 40 . 10 . 25})
 		title: [ :datas | 'Priority of actions' ];
-		singleValueTooltip: '<key> has an importance of <value>%';
 		chartType: self kind;
 		yourself.
 	selection

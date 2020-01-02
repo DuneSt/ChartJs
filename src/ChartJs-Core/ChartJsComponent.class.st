@@ -49,28 +49,28 @@ ChartJsComponent >> callbackMechanism: canvasId actionUrl: anUrl cb: cb eventsCo
 				<< 'document.getElementById("graph';
 				<< canvasId;
 				<<
-						'").onclick = function(evt){
+					'").onclick = function(evt){
 	//add 1 because Pharo start at 1 and Js at 0
-    var activePointIndex = 1 + myChart';
-				<< canvasId;
-				<<
-						(self data chartType isMultiDataSet
-								ifTrue: [ '.datasets[0].' ]
-								ifFalse: [ '.' ]);
-				<< self data chartType dataFunction;
-				<< '.indexOf(myChart';
+	var activePoint = myChart';
 				<< canvasId;
 				<< '.';
 				<< eventsCode;
+				<< '[0];';
+				<< Character cr;
+				<< 'console.log(activePoint["_index"])';
+				<< Character cr;
 				<<
-						'[0]);
+					'
+    var activePointIndex = 1 + activePoint["_index"]';
+<<
+					'
 	if(activePointIndex!=0){
 	post( "';
 				<< anUrl asString;
 				<< '", { "';
 				<< cb;
 				<<
-						'" : activePointIndex } );
+					'" : activePointIndex } );
 }};' ]
 ]
 
@@ -101,12 +101,12 @@ ChartJsComponent >> hasCallBack [
 { #category : #rendering }
 ChartJsComponent >> manageCallBackIn: html canvas: canvas inDiv: divId [
 	self hasCallBack
-		ifTrue: [ 
-			| cb |
+		ifTrue: [ | cb |
 			cb := canvas
 				storeCallback:
 					(WAValuesCallback
-						on: [ :nodeOrAssociation | self value cull: nodeOrAssociation value cull: nodeOrAssociation key ]
+						on:
+							[ :nodeOrAssociation | self value cull: nodeOrAssociation value cull: nodeOrAssociation key ]
 						values: self data).
 			html
 				script:
@@ -135,15 +135,46 @@ ChartJsComponent >> printDataOn: s [
 ]
 
 { #category : #rendering }
-ChartJsComponent >> printDiagramCreationOn: s inDiv: divId [
+ChartJsComponent >> printDiagramContextCreationOn: s inDiv: divId [
 	s
-		<< 'var myChart';
-		<< divId;
-		<< ' = new Chart(document.getElementById("';
+		<< 'var ctx = document.getElementById("';
 		<< #graph;
 		<< divId;
-		<< '").getContext("2d")).';
-		<< self data chartType forChartJS
+		<< '").getContext("2d");'
+]
+
+{ #category : #rendering }
+ChartJsComponent >> printDiagramCreationOn: s [
+	s
+		<< 'var myChart = new Chart(ctx, {';
+		cr;
+		<< 'type:"';
+		<< data chartType forChartJS ;
+		<< '",data:';
+		cr.
+	(NeoJSONWriter on: s) nextPut: self data.
+	s
+		cr;
+		<< ',options:'.
+	self printOptionsOn: s inHtml: nil canvas: nil.
+	s << '});'
+]
+
+{ #category : #rendering }
+ChartJsComponent >> printDiagramCreationOn: s inDiv: divId [
+	(s << 'var myChart' << divId asString)
+		<< ' = new Chart(ctx, {';
+		cr;
+		<< 'type:"';
+		<< data chartType forChartJS;
+		<< '",data:';
+		cr.
+	(NeoJSONWriter on: s) nextPut: self data.
+	s
+		cr;
+		<< ',options:'.
+	self printOptionsOn: s inHtml: nil canvas: nil.
+	s << '});'
 ]
 
 { #category : #rendering }
@@ -162,7 +193,6 @@ ChartJsComponent >> printLegendOn: s forDiv: divId [
 ChartJsComponent >> printOptionsOn: s inHtml: html canvas: canvas [
 	|  optionsDictionary |
 	optionsDictionary := self options asDictionary.
-	self data enrichOptions: optionsDictionary.
 	(NeoJSONWriter on: s)
 		nextPut: optionsDictionary;
 		close
@@ -187,17 +217,9 @@ ChartJsComponent >> renderContentOn: html [
 						script:
 							(String
 								streamContents: [ :s | 
-									self printDiagramCreationOn: s inDiv: divId.
-									s nextPutAll: '('.
-									self printDataOn: s.
-									s nextPutAll: ', '.
-									self printOptionsOn: s inHtml: html canvas: canvas.
-									s nextPutAll: ');'.
-									self printLegendOn: s forDiv: divId.
-									s
-										<< 'charts.push(myChart';
-										<< divId;
-										<< ')' ]) ]
+									self printDiagramContextCreationOn: s inDiv: divId.
+									s cr.
+									self printDiagramCreationOn: s inDiv: divId ]) ]
 				ifFalse: [ html div
 						class: 'mdl-alert mdl-alert__danger';
 						style: 'color: red; text-align: center; margin: auto;';
