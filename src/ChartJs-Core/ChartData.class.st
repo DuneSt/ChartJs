@@ -153,11 +153,15 @@ ChartData >> neoJsonOn: writer [
 
 { #category : #colors }
 ChartData >> resetBackgroundwithDataSize [
-  | dic |
-  dic := self dataSets collect: [:aDataSet |  aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ].
-  (self chartType1d includes: self chartType forChartJS) ifTrue: [ dic anyOne at: #backgroundColor put: (RTCPQualitative new colors: self xObjects size + 1) ].
-
-  ^dic
+	| dic |
+	dic := self dataSets
+		collect:
+			[ :aDataSet | aDataSet neoJsonObjectFor: self xObjects block: self valueDisplayBlock ].
+	(self chartType1d includes: self chartType forChartJS)
+		ifTrue: [ dic anyOne
+				at: #backgroundColor
+				put: (Color wheel: self xObjects size + 1) ].
+	^ dic
 ]
 
 { #category : #accessing }
