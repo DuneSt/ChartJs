@@ -74,15 +74,6 @@ ChartStyleSheet >> logarithmicScale [
 ]
 
 { #category : #'as yet unclassified' }
-ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjects andValues: values [
-	| result |
-	result := aPropertyOrValuable cull: self.
-	^ (result isBlock or: [ result isSymbol ])
-		ifTrue: [ result cull: aCollectionOfXObjects cull: values ]
-		ifFalse: [ result ]
-]
-
-{ #category : #'as yet unclassified' }
 ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjects andValues: values andLabel: aLabel [
 	| result |
 	result := aPropertyOrValuable cull: self.
@@ -127,8 +118,8 @@ ChartStyleSheet >> pointStrokeColor [
 ]
 
 { #category : #points }
-ChartStyleSheet >> pointStrokeColor: aColor [
-	^ self at: #pointStrokeColor put: aColor
+ChartStyleSheet >> pointStrokeColor: aValuableOrColor [
+	^ self at: #pointStrokeColor put: aValuableOrColor
 ]
 
 { #category : #scale }
