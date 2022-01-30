@@ -1,8 +1,5 @@
 # ChartJS for Seaside
 
-#### Linux/OSX builds
-Master: [![Build Status](https://travis-ci.org/DuneSt/ChartJs.svg?branch=master)](https://travis-ci.org/DuneSt/ChartJs)| Development: [![Build Status](https://travis-ci.org/DuneSt/ChartJs.svg?branch=development)](https://travis-ci.org/DuneSt/ChartJs)
-
 This project is an implementation of ChartJs in Seaside with a model associated to charts.
 
 It uses Stylesheet for customization and can be used in local network.
@@ -72,8 +69,8 @@ You can find a demo at: [https://demos.ferlicot.fr/ChartJsDemo](https://demos.fe
 
 | ChartJs version 	| Compatible Pharo versions 	|
 |---------------	|---------------------------	|
-| v1.0.0	      	| Pharo 61                  	|
-| development      	| Pharo 61                  	|
+| v1.0.0	      	| Pharo 61, 70, 80, 90         	|
+| development      	| Pharo 61, 70, 80, 90         	|
 
 ## Contact
 
