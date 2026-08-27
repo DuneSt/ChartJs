@@ -2,27 +2,29 @@
 I represent a Radar chart, also called Kiviat
 "
 Class {
-	#name : #ChartRadar,
-	#superclass : #ChartType,
-	#category : #'ChartJs-Core-Types'
+	#name : 'ChartRadar',
+	#superclass : 'ChartType',
+	#category : 'ChartJs-Core-Types',
+	#package : 'ChartJs-Core',
+	#tag : 'Types'
 }
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartRadar class >> dataFunction [
 	^ 'points'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartRadar class >> eventsCode [
 	^ 'getPointsAtEvent(evt)'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartRadar class >> forChartJS [
 	^ 'Radar'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartRadar class >> isMultiDataSet [
 	^ true
 ]

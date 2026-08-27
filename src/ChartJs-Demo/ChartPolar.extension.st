@@ -1,6 +1,6 @@
-Extension { #name : #ChartPolar }
+Extension { #name : 'ChartPolar' }
 
-{ #category : #'*ChartJs-Demo' }
+{ #category : '*ChartJs-Demo' }
 ChartPolar class >> displayName [
 	^ 'Polar'
 ]

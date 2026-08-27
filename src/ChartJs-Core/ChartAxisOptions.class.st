@@ -2,47 +2,49 @@
 I am the options for an axis of the graph
 "
 Class {
-	#name : #ChartAxisOptions,
-	#superclass : #Object,
+	#name : 'ChartAxisOptions',
+	#superclass : 'Object',
 	#instVars : [
 		'scale',
 		'visible'
 	],
-	#category : #'ChartJs-Core-Model'
+	#category : 'ChartJs-Core-Model',
+	#package : 'ChartJs-Core',
+	#tag : 'Model'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChartAxisOptions >> initialize [
 	self visible: true.
 ]
 
-{ #category : #scale }
+{ #category : 'scale' }
 ChartAxisOptions >> logarithmicScale [
 	self scale: #logarithmic
 ]
 
-{ #category : #conversion }
+{ #category : 'conversion' }
 ChartAxisOptions >> neoJsonOn: neoJSONWriter [
 	neoJSONWriter writeListStreamingDo: [ :jsonListWriter |
 		jsonListWriter writeElement: { #display -> self visible . #type -> self scale } asDictionary ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAxisOptions >> scale [
 	^ scale
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAxisOptions >> scale: anObject [
 	scale := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAxisOptions >> visible [
 	^ visible
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAxisOptions >> visible: anObject [
 	visible := anObject
 ]

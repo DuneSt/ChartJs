@@ -1,6 +1,6 @@
-Extension { #name : #ChartLine }
+Extension { #name : 'ChartLine' }
 
-{ #category : #'*ChartJs-Demo' }
+{ #category : '*ChartJs-Demo' }
 ChartLine class >> displayName [
 	^ 'Line'
 ]

@@ -2,22 +2,23 @@
 A ChartDataAbstractTest is a test class for testing the behavior of ChartDataAbstract
 "
 Class {
-	#name : #ChartDataAbstractTest,
-	#superclass : #TestCase,
-	#category : #'ChartJs-Core-Tests'
+	#name : 'ChartDataAbstractTest',
+	#superclass : 'TestCase',
+	#category : 'ChartJs-Core-Tests',
+	#package : 'ChartJs-Core-Tests'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartDataAbstractTest class >> isAbstract [
 	^ self = ChartDataAbstractTest
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 ChartDataAbstractTest >> actualClass [
 	^ self subclassResponsibility
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ChartDataAbstractTest >> testHasData [
 	self subclassResponsibility
 ]

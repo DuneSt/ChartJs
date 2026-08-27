@@ -2,26 +2,28 @@
 I am the styleSheet for a Chart
 "
 Class {
-	#name : #ChartStyleSheet,
-	#superclass : #StyleSheet,
-	#category : #'ChartJs-Core-Style'
+	#name : 'ChartStyleSheet',
+	#superclass : 'StyleSheet',
+	#category : 'ChartJs-Core-Style',
+	#package : 'ChartJs-Core',
+	#tag : 'Style'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ChartStyleSheet class >> charDataSetDefault [
 	^ self new
 		globalSetColor: Color random;
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ChartStyleSheet class >> default [
 	^ self new
 		chartType: ChartBar;
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values: values label: aLabel [
 	^ #(#fillColor #strokeColor #pointColor #pointStrokeColor #pointHighlightFill #pointHighlightStroke)
 		inject: Dictionary new
@@ -32,27 +34,27 @@ ChartStyleSheet >> charDataSetNeoJsonObjectForKeys: aCollectionOfXObjects values
 			dico ]
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> chartType [
 	^ self get: #chartType
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> chartType: aChartType [
 	self at: #chartType put: aChartType
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> fillColor [
 	^ self get: #fillColor
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> fillColor: aColor [
 	^ self at: #fillColor put: aColor
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 ChartStyleSheet >> globalSetColor: aColor [
 	self fillColor: (aColor copy alpha: 0.2).
 	self pointColor: aColor.
@@ -62,18 +64,18 @@ ChartStyleSheet >> globalSetColor: aColor [
 	self strokeColor: aColor
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 ChartStyleSheet >> globalSetColorZone: aColor [
 	self fillColor: (aColor copy alpha: 0.8).
 	self strokeColor: aColor
 ]
 
-{ #category : #scale }
+{ #category : 'scale' }
 ChartStyleSheet >> logarithmicScale [
 	self at: #scale put: #logarithmic
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjects andValues: values andLabel: aLabel [
 	| result |
 	result := aPropertyOrValuable cull: self.
@@ -82,57 +84,57 @@ ChartStyleSheet >> obtainValue: aPropertyOrValuable forKeys: aCollectionOfXObjec
 		ifFalse: [ result ]
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointColor [
 	^ self get: #pointColor
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointColor: aColor [
 	^ self at: #pointColor put: aColor
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointHighlightFill [
 	^ self get: #pointHighlightFill
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointHighlightFill: aColor [
 	^ self at: #pointHighlightFill put: aColor
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointHighlightStroke [
 	^ self get: #pointHighlightStroke
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointHighlightStroke: aColor [
 	^ self at: #pointHighlightStroke put: aColor
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointStrokeColor [
 	^ self get: #pointStrokeColor
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> pointStrokeColor: aValuableOrColor [
 	^ self at: #pointStrokeColor put: aValuableOrColor
 ]
 
-{ #category : #scale }
+{ #category : 'scale' }
 ChartStyleSheet >> scale [
 	self get: #scale
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> strokeColor [
 	^ self get: #strokeColor
 ]
 
-{ #category : #points }
+{ #category : 'points' }
 ChartStyleSheet >> strokeColor: aColor [
 	^ self at: #strokeColor put: aColor
 ]

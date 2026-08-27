@@ -2,17 +2,19 @@
 I represent a ChartDataValue with a style for this data representation and a value
 "
 Class {
-	#name : #ChartDataValue,
-	#superclass : #Object,
+	#name : 'ChartDataValue',
+	#superclass : 'Object',
 	#instVars : [
 		'value',
 		'styleSheet',
 		'name'
 	],
-	#category : #'ChartJs-Core-Model'
+	#category : 'ChartJs-Core-Model',
+	#package : 'ChartJs-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartDataValue class >> value: aValue name: aName [
 	^ self new
 		value: aValue;
@@ -20,7 +22,7 @@ ChartDataValue class >> value: aValue name: aName [
 		yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartDataValue class >> value: aValue name: aName color: aColor [
 	^ self new
 		value: aValue;
@@ -29,12 +31,12 @@ ChartDataValue class >> value: aValue name: aName color: aColor [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> color [
 	^ self styleSheet fillColor
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartDataValue >> forChartJS: writer displayBlock: aDisplayBlock [
 	writer
 		writeMapStreamingDo: [ :jsonMapWriter | 
@@ -44,48 +46,48 @@ ChartDataValue >> forChartJS: writer displayBlock: aDisplayBlock [
 			jsonMapWriter writeKey: #label value: self name ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> globalColor: aColor [
 	^ self styleSheet globalSetColorZone: aColor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> highlightColor [
 	^ self styleSheet strokeColor
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChartDataValue >> initialize [
 	super initialize.
 	self styleSheet: ChartStyleSheet charDataSetDefault
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> styleSheet [
 	^ styleSheet
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> styleSheet: anObject [
 	styleSheet := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataValue >> value: anObject [
 	value := anObject
 ]

@@ -2,8 +2,8 @@
 I am a specific data for a Box Plot
 "
 Class {
-	#name : #ChartBoxPlotData,
-	#superclass : #Object,
+	#name : 'ChartBoxPlotData',
+	#superclass : 'Object',
 	#instVars : [
 		'lowest',
 		'firstQuartile',
@@ -11,15 +11,17 @@ Class {
 		'thirdQuartile',
 		'highest'
 	],
-	#category : #'ChartJs-Core-Model'
+	#category : 'ChartJs-Core-Model',
+	#package : 'ChartJs-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ChartBoxPlotData class >> for: aCollectionOfObjects using: aProperty [
 	^ self forRepartition: (aCollectionOfObjects collect: aProperty as: SortedCollection)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ChartBoxPlotData class >> forRepartition: repartition [
 	| firstQuartile lowest |
 	firstQuartile := [ repartition at: (repartition size / 4) asInteger ]
@@ -36,7 +38,7 @@ ChartBoxPlotData class >> forRepartition: repartition [
 		highest: (repartition at: (9 * (repartition size / 10)) asInteger)
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ChartBoxPlotData class >> lowest: aLowestValue firstQuartile: aFirstQuartileValue median: aMedianValue thirdQuartile: aThirdQuartileValue highest: aHighestValue [
 	^ self new
 		lowest: aLowestValue;
@@ -47,7 +49,7 @@ ChartBoxPlotData class >> lowest: aLowestValue firstQuartile: aFirstQuartileValu
 		yourself
 ]
 
-{ #category : #conversion }
+{ #category : 'conversion' }
 ChartBoxPlotData >> do: aBlockClosure [ 
 	aBlockClosure value: self lowest.
 	aBlockClosure value: self firstQuartile - self lowest .
@@ -56,57 +58,57 @@ ChartBoxPlotData >> do: aBlockClosure [
 	aBlockClosure value: self highest - self thirdQuartile.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> firstQuartile [
 	^ firstQuartile
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> firstQuartile: anObject [
 	firstQuartile := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> highest [
 	^ highest
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> highest: anObject [
 	highest := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> lowest [
 	^ lowest
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> lowest: anObject [
 	lowest := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> median [
 	^ median
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> median: anObject [
 	median := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ChartBoxPlotData >> neoJsonOn: writer [
 	writer writeList: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> thirdQuartile [
 	^ thirdQuartile
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotData >> thirdQuartile: anObject [
 	thirdQuartile := anObject
 ]

@@ -1,27 +1,28 @@
 Class {
-	#name : #Chart1dDemo,
-	#superclass : #ChartAbstractChartTypeDemo,
-	#category : #'ChartJs-Demo'
+	#name : 'Chart1dDemo',
+	#superclass : 'ChartAbstractChartTypeDemo',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Chart1dDemo class >> description [
 	^ 'Demo about one dimension charts with ChartJs for Seaside.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Chart1dDemo class >> title [
 	^ '1D demo'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Chart1dDemo >> kinds [
 	^ {ChartPie.
 	ChartDonut.
 	ChartPolar}
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Chart1dDemo >> renderChartJsComponentOn: html [
 	| renderingChartBlock id |
 	

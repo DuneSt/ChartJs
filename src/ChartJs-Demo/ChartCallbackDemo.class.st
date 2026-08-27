@@ -1,23 +1,24 @@
 Class {
-	#name : #ChartCallbackDemo,
-	#superclass : #ChartAbstractDemo,
+	#name : 'ChartCallbackDemo',
+	#superclass : 'ChartAbstractDemo',
 	#instVars : [
 		'selection'
 	],
-	#category : #'ChartJs-Demo'
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartCallbackDemo class >> description [
 	^ 'It is possible to add an action to execute on the click of a value'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartCallbackDemo class >> title [
 	^ 'Callback'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartCallbackDemo >> renderChartJsComponentOn: html [
 	| chartData |
 	html heading

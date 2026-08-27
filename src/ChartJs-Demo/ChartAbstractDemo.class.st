@@ -1,40 +1,41 @@
 Class {
-	#name : #ChartAbstractDemo,
-	#superclass : #WAComponent,
-	#category : #'ChartJs-Demo'
+	#name : 'ChartAbstractDemo',
+	#superclass : 'WAComponent',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractDemo class >> demos [
 	^ (self allSubclasses reject: #isAbstract) sorted: [ :a :b | a title < b title ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractDemo class >> description [
 	^ self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartAbstractDemo class >> isAbstract [
 	^ self = ChartAbstractDemo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractDemo class >> title [
 	^ self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractDemo >> description [
 	^ self class description
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartAbstractDemo >> renderChartJsComponentOn: html [
 	^ self subclassResponsibility
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartAbstractDemo >> renderCodeOfDemoOn: html [
 	html heading
 		level3;
@@ -50,7 +51,7 @@ ChartAbstractDemo >> renderCodeOfDemoOn: html [
 						yourself) ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartAbstractDemo >> renderContentOn: html [
 	self renderTitleOn: html.
 	html div
@@ -59,14 +60,14 @@ ChartAbstractDemo >> renderContentOn: html [
 			self renderCodeOfDemoOn: html ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartAbstractDemo >> renderDemoOn: html [
 	html div
 		class: 'chartJs-demo-snippet-demo';
 		with: [ self renderChartJsComponentOn: html ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartAbstractDemo >> renderTitleOn: html [
 	html div
 		class: 'chartJs-demo-page-title';
@@ -77,12 +78,12 @@ ChartAbstractDemo >> renderTitleOn: html [
 			self warningDescription ifNotNil: [ :desc | html strong: desc ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractDemo >> title [
 	^ self class title
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractDemo >> warningDescription [
 	"If a demo needs a warning, override this method."
 

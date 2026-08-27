@@ -1,20 +1,21 @@
 Class {
-	#name : #ChartLabelsDemo,
-	#superclass : #ChartAbstractDemo,
-	#category : #'ChartJs-Demo'
+	#name : 'ChartLabelsDemo',
+	#superclass : 'ChartAbstractDemo',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartLabelsDemo class >> description [
 	^ 'It is possible to customize the labels of the values.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartLabelsDemo class >> title [
 	^ 'Labels customizations'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartLabelsDemo >> renderChartJsComponentOn: html [
 	| chartData |
 	chartData := Chart2dData

@@ -2,27 +2,29 @@
 I represent a polar chart
 "
 Class {
-	#name : #ChartPolar,
-	#superclass : #ChartType,
-	#category : #'ChartJs-Core-Types'
+	#name : 'ChartPolar',
+	#superclass : 'ChartType',
+	#category : 'ChartJs-Core-Types',
+	#package : 'ChartJs-Core',
+	#tag : 'Types'
 }
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartPolar class >> dataFunction [
 	^ 'segments'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartPolar class >> eventsCode [
 	^ 'getSegmentsAtEvent(evt)'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartPolar class >> forChartJS [
 	^ 'PolarArea'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartPolar class >> isFor1DValues [
 	^ true
 ]
