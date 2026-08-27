@@ -2,12 +2,13 @@
 I am a baseline of ChartJs for Seaside. Read more at: https://github.com/DuneSt/ChartJs
 "
 Class {
-	#name : #BaselineOfChartJs,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfChartJs
+	#name : 'BaselineOfChartJs',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfChartJs',
+	#package : 'BaselineOfChartJs'
 }
 
-{ #category : #baseline }
+{ #category : 'baseline' }
 BaselineOfChartJs >> baseline: spec [
 	<baseline>
 	spec
@@ -38,12 +39,12 @@ BaselineOfChartJs >> baseline: spec [
 				group: 'tests' with: #('ChartJs-Core-Tests') ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfChartJs >> neoJSON: spec [
 	spec baseline: 'NeoJSON' with: [ spec repository: 'github://svenvc/NeoJSON/repository' ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfChartJs >> prism: spec [
 	spec
 		baseline: 'PrismCodeDisplayer'
@@ -52,19 +53,19 @@ BaselineOfChartJs >> prism: spec [
 				loads: 'core' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BaselineOfChartJs >> projectClass [
 	^ [ self class environment at: #MetacelloCypressBaselineProject ]
 		on: NotFound
 		do: [ super projectClass ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfChartJs >> seaside3: spec [
 	spec baseline: 'Seaside3' with: [ spec repository: 'github://SeasideSt/Seaside:v3.4.x/repository' ]
 ]
 
-{ #category : #dependencies }
+{ #category : 'dependencies' }
 BaselineOfChartJs >> stylesheet: spec [
 	spec baseline: 'Stylesheet' with: [ spec repository: 'github://pharo-contributions/Stylesheet:v1.x.x/src' ]
 ]

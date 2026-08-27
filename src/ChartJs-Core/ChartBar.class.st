@@ -2,27 +2,29 @@
 I represent a bar chart
 "
 Class {
-	#name : #ChartBar,
-	#superclass : #ChartType,
-	#category : #'ChartJs-Core-Types'
+	#name : 'ChartBar',
+	#superclass : 'ChartType',
+	#category : 'ChartJs-Core-Types',
+	#package : 'ChartJs-Core',
+	#tag : 'Types'
 }
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartBar class >> dataFunction [
 	^ 'bars'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartBar class >> eventsCode [
 	^ 'getBarsAtEvent(evt)'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartBar class >> forChartJS [
 	^ 'Bar'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartBar class >> isMultiDataSet [
 	^ true
 ]

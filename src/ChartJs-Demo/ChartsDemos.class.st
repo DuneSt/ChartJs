@@ -2,17 +2,18 @@
 I am the demos for charts components
 "
 Class {
-	#name : #ChartsDemos,
-	#superclass : #WAComponent,
+	#name : 'ChartsDemos',
+	#superclass : 'WAComponent',
 	#instVars : [
 		'selectedNode',
 		'selectedValue',
 		'currentDemo'
 	],
-	#category : #'ChartJs-Demo'
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 ChartsDemos class >> initialize [
 	WAAdmin applicationDefaults removeParent: WADevelopmentConfiguration instance.
 	(WAAdmin register: self asApplicationAt: 'ChartJsDemo')
@@ -21,28 +22,28 @@ ChartsDemos class >> initialize [
 		addLibrary: JQDeploymentLibrary
 ]
 
-{ #category : #versions }
+{ #category : 'versions' }
 ChartsDemos class >> version [
 	^ 'v1.0.0'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartsDemos >> currentDemo [
 	^ currentDemo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartsDemos >> currentDemo: anObject [
 	currentDemo := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChartsDemos >> initialize [
 	super initialize.
 	self currentDemo: Chart1dDemo new
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartsDemos >> renderContentOn: html [
 	html div
 		class: 'chartJs-demo';
@@ -53,14 +54,14 @@ ChartsDemos >> renderContentOn: html [
 						with: [ html render: self currentDemo ] ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartsDemos >> renderDemoListOn: html [
 	html div
 		class: 'chartJs-demo-list';
 		with: [ html unorderedList: [ ChartAbstractDemo demos do: [ :aDemoClass | self renderDemosListItemFor: aDemoClass on: html ] ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartsDemos >> renderDemosListItemFor: aDemoClass on: html [
 	html listItem
 		class: 'chartJs-demo-list-item_active' if: aDemoClass = self currentDemo class;
@@ -69,7 +70,7 @@ ChartsDemos >> renderDemosListItemFor: aDemoClass on: html [
 				with: [ html span: aDemoClass title ] ]
 ]
 
-{ #category : #hooks }
+{ #category : 'hooks' }
 ChartsDemos >> style [
 	^ 'body, html{
 	margin: 0;
@@ -209,7 +210,7 @@ ChartsDemos >> style [
 
 ]
 
-{ #category : #updating }
+{ #category : 'updating' }
 ChartsDemos >> updateRoot: anHtmlRoot [
 	super updateRoot: anHtmlRoot.
 	anHtmlRoot link

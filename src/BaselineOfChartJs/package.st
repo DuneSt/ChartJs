@@ -1,1 +1,1 @@
-Package { #name : #BaselineOfChartJs }
+Package { #name : 'BaselineOfChartJs' }

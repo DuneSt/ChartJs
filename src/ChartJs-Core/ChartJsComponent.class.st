@@ -6,42 +6,44 @@ Give me a ChartData to display and I will manage everything.
 Don't forget to add ChartJsLibrary to your application
 "
 Class {
-	#name : #ChartJsComponent,
-	#superclass : #WAComponent,
+	#name : 'ChartJsComponent',
+	#superclass : 'WAComponent',
 	#instVars : [
 		'data',
 		'options',
 		'value'
 	],
-	#category : #'ChartJs-Core-Component'
+	#category : 'ChartJs-Core-Component',
+	#package : 'ChartJs-Core',
+	#tag : 'Component'
 }
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartJsComponent class >> data: aChartData [
 	^ self new data: aChartData; yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartJsComponent class >> data: aChartData callback: aBlockClosure [ 
 	^ self new data: aChartData; callback: aBlockClosure; yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartJsComponent class >> data: aChartData options: aChartOptions [
 	^ self new data: aChartData; options: aChartOptions; yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartJsComponent class >> data: aChartData options: aChartOptions callback: aBlockClosure [ 
 	^ self new data: aChartData; options: aChartOptions; callback: aBlockClosure; yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartJsComponent >> callback: aBlockClosure [ 
 	self value: aBlockClosure 
 ]
 
-{ #category : #callback }
+{ #category : 'callback' }
 ChartJsComponent >> callbackMechanism: canvasId actionUrl: anUrl cb: cb eventsCode: eventsCode [
 	^ String
 		streamContents: [ :stream | 
@@ -74,7 +76,7 @@ ChartJsComponent >> callbackMechanism: canvasId actionUrl: anUrl cb: cb eventsCo
 }};' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> createIfNecessaryLegend: html inDiv: divId [
 	self data hasLegend
 		ifTrue: [ 
@@ -83,22 +85,22 @@ ChartJsComponent >> createIfNecessaryLegend: html inDiv: divId [
 				class: #chartJsLegend ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartJsComponent >> data [
 	^ data
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartJsComponent >> data: anObject [
 	data := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartJsComponent >> hasCallBack [
 	^ self value notNil
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> manageCallBackIn: html canvas: canvas inDiv: divId [
 	self hasCallBack
 		ifTrue: [ 
@@ -117,24 +119,24 @@ ChartJsComponent >> manageCallBackIn: html canvas: canvas inDiv: divId [
 						eventsCode: self data chartType eventsCode) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartJsComponent >> options [
 	^ options ifNil: [ ChartOptions new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartJsComponent >> options: anObject [
 	options := anObject
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> printDataOn: s [
 	(NeoJSONWriter on: s)
 		nextPut: self data;
 		close
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> printDiagramCreationOn: s inDiv: divId [
 	s
 		<< 'var myChart';
@@ -146,7 +148,7 @@ ChartJsComponent >> printDiagramCreationOn: s inDiv: divId [
 		<< self data chartType forChartJS
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> printLegendOn: s forDiv: divId [
 	^ self data hasLegend
 		ifTrue: [ 
@@ -158,7 +160,7 @@ ChartJsComponent >> printLegendOn: s forDiv: divId [
 				nextPutAll: '.generateLegend();' ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> printOptionsOn: s inHtml: html canvas: canvas [
 	|  optionsDictionary |
 	optionsDictionary := self options asDictionary.
@@ -168,7 +170,7 @@ ChartJsComponent >> printOptionsOn: s inHtml: html canvas: canvas [
 		close
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> renderContentOn: html [
 	| divId canvas |
 	divId := html nextId.
@@ -206,7 +208,7 @@ ChartJsComponent >> renderContentOn: html [
 				ifTrue: [ self renderTitleId: divId on: html ] ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartJsComponent >> renderTitleId: divId on: html [
 	^ html div
 		id: #title , divId;
@@ -217,12 +219,12 @@ ChartJsComponent >> renderTitleId: divId on: html [
 						with: self data title ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartJsComponent >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartJsComponent >> value: anObject [
 	value := anObject
 ]

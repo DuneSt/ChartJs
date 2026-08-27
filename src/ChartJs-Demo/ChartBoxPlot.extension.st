@@ -1,6 +1,6 @@
-Extension { #name : #ChartBoxPlot }
+Extension { #name : 'ChartBoxPlot' }
 
-{ #category : #'*ChartJs-Demo' }
+{ #category : '*ChartJs-Demo' }
 ChartBoxPlot class >> displayName [
 	^ 'Box plot'
 ]

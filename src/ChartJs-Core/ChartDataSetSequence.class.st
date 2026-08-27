@@ -2,40 +2,42 @@
 I am the most basic char data set existing, i just answer a collection of value from my sequence
 "
 Class {
-	#name : #ChartDataSetSequence,
-	#superclass : #ChartDataSet,
+	#name : 'ChartDataSetSequence',
+	#superclass : 'ChartDataSet',
 	#instVars : [
 		'sequence'
 	],
-	#category : #'ChartJs-Core-Model'
+	#category : 'ChartJs-Core-Model',
+	#package : 'ChartJs-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartDataSetSequence class >> name: aName sequence: aSequence [
 	^ self new name: aName;sequence: aSequence; yourself
 ]
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ChartDataSetSequence class >> sequence: aSequence [
 	^ self new sequence: aSequence; yourself
 ]
 
-{ #category : #exchange }
+{ #category : 'exchange' }
 ChartDataSetSequence >> atIndex: anInteger forValue: aValue [
 	^ self sequence at: anInteger.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataSetSequence >> sequence [
 	^ sequence
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataSetSequence >> sequence: anObject [
 	sequence := anObject
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 ChartDataSetSequence >> valuesFor: aCollectionOfXObjects block: aBlock [
 	aCollectionOfXObjects size = self sequence size
 		ifFalse: [ ChartDataWrongFormatException signal: 'Their must be as many values in the dataset that the data x objects' ].

@@ -2,47 +2,49 @@
 I am an abstract dataSet. All dataSets have a style to display them and must be able to answer a bunch of value for provided objects
 "
 Class {
-	#name : #ChartDataSet,
-	#superclass : #Object,
+	#name : 'ChartDataSet',
+	#superclass : 'Object',
 	#instVars : [
 		'name',
 		'styleSheet'
 	],
-	#category : #'ChartJs-Core-Model'
+	#category : 'ChartJs-Core-Model',
+	#package : 'ChartJs-Core',
+	#tag : 'Model'
 }
 
-{ #category : #exchange }
+{ #category : 'exchange' }
 ChartDataSet >> atIndex: anIndex forValue: aValue [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #color }
+{ #category : 'color' }
 ChartDataSet >> color: aColor [
 	self styleSheet globalSetColor: aColor
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataSet >> hasName [
 	^ self name isNotNil
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChartDataSet >> initialize [
 	super initialize.
 	self styleSheet: ChartStyleSheet charDataSetDefault
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataSet >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataSet >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #exchange }
+{ #category : 'exchange' }
 ChartDataSet >> neoJsonObjectFor: aCollectionOfXObjects block: aBlock [
 	| dico |
 	dico := Dictionary new.
@@ -52,17 +54,17 @@ ChartDataSet >> neoJsonObjectFor: aCollectionOfXObjects block: aBlock [
 	^ dico
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataSet >> styleSheet [
 	^ styleSheet
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartDataSet >> styleSheet: anObject [
 	styleSheet := anObject
 ]
 
-{ #category : #querying }
+{ #category : 'querying' }
 ChartDataSet >> valuesFor: aCollectionOfXObjects block: aBlock [
 	^ self subclassResponsibility 
 ]

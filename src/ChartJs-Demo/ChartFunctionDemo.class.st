@@ -1,20 +1,21 @@
 Class {
-	#name : #ChartFunctionDemo,
-	#superclass : #ChartAbstractDemo,
-	#category : #'ChartJs-Demo'
+	#name : 'ChartFunctionDemo',
+	#superclass : 'ChartAbstractDemo',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartFunctionDemo class >> description [
 	^ 'ChartJs for Seaside allow the user to use a function to compute the values of the chart.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartFunctionDemo class >> title [
 	^ 'Values by function'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartFunctionDemo >> renderChartJsComponentOn: html [
 	html render: (ChartJsComponent data: (Chart2dData xObjects: (1 to: 10) function: [ :x | x * (x + 1) ]))
 ]

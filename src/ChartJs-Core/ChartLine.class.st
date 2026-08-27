@@ -2,27 +2,29 @@
 I represent a line chart
 "
 Class {
-	#name : #ChartLine,
-	#superclass : #ChartType,
-	#category : #'ChartJs-Core-Types'
+	#name : 'ChartLine',
+	#superclass : 'ChartType',
+	#category : 'ChartJs-Core-Types',
+	#package : 'ChartJs-Core',
+	#tag : 'Types'
 }
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartLine class >> dataFunction [
 	^ 'points'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartLine class >> eventsCode [
 	^ 'getPointsAtEvent(evt)'
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartLine class >> forChartJS [
 	^ 'Line'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartLine class >> isMultiDataSet [
 	^ true
 ]

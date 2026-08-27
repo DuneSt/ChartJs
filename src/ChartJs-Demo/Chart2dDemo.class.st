@@ -1,27 +1,28 @@
 Class {
-	#name : #Chart2dDemo,
-	#superclass : #ChartAbstractChartTypeDemo,
-	#category : #'ChartJs-Demo'
+	#name : 'Chart2dDemo',
+	#superclass : 'ChartAbstractChartTypeDemo',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Chart2dDemo class >> description [
 	^ 'Demo about two dimensions charts with ChartJs for Seaside.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Chart2dDemo class >> title [
 	^ '2D demo'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Chart2dDemo >> kinds [
 	^ {ChartBar.
 	ChartLine.
 	ChartRadar}
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 Chart2dDemo >> renderChartJsComponentOn: html [
 	| renderingChartBlock id |
 	

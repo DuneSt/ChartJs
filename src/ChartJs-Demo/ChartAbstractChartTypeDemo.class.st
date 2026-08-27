@@ -1,40 +1,41 @@
 Class {
-	#name : #ChartAbstractChartTypeDemo,
-	#superclass : #ChartAbstractDemo,
+	#name : 'ChartAbstractChartTypeDemo',
+	#superclass : 'ChartAbstractDemo',
 	#instVars : [
 		'kind',
 		'selection'
 	],
-	#category : #'ChartJs-Demo'
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartAbstractChartTypeDemo class >> isAbstract [
 	^ self = ChartAbstractChartTypeDemo
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChartAbstractChartTypeDemo >> initialize [
 	super initialize.
 	self kind: self kinds anyOne
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractChartTypeDemo >> kind [
 	^ kind
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractChartTypeDemo >> kind: anObject [
 	kind := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractChartTypeDemo >> kinds [
 	^ self subclassResponsibility
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartAbstractChartTypeDemo >> renderDemoWithId: id with: renderingChartBlock on: html [
 	html div
 		id: id;
@@ -42,7 +43,7 @@ ChartAbstractChartTypeDemo >> renderDemoWithId: id with: renderingChartBlock on:
 		with: [ renderingChartBlock value: html ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartAbstractChartTypeDemo >> renderPossibleKindsUpdating: id with: renderingChartBlock on: html [
 	html form
 		style: 'display: flex; justify-content: space-around; margin-bottom: 20px;';
@@ -64,12 +65,12 @@ ChartAbstractChartTypeDemo >> renderPossibleKindsUpdating: id with: renderingCha
 									html text: each displayName ] ] ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractChartTypeDemo >> selection [
 	^ selection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartAbstractChartTypeDemo >> selection: anObject [
 	selection := anObject
 ]

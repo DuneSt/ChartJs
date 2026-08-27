@@ -2,17 +2,18 @@
 A Chart1dDataTest is a test class for testing the behavior of Chart1dData
 "
 Class {
-	#name : #Chart1dDataTest,
-	#superclass : #ChartDataAbstractTest,
-	#category : #'ChartJs-Core-Tests'
+	#name : 'Chart1dDataTest',
+	#superclass : 'ChartDataAbstractTest',
+	#category : 'ChartJs-Core-Tests',
+	#package : 'ChartJs-Core-Tests'
 }
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 Chart1dDataTest >> actualClass [
 	^ Chart1dData
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 Chart1dDataTest >> testHasData [
 	| datas |
 	datas := self actualClass
