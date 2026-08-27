@@ -2,32 +2,34 @@
 I am the superclass for all chart types
 "
 Class {
-	#name : #ChartType,
-	#superclass : #Object,
-	#category : #'ChartJs-Core-Types'
+	#name : 'ChartType',
+	#superclass : 'Object',
+	#category : 'ChartJs-Core-Types',
+	#package : 'ChartJs-Core',
+	#tag : 'Types'
 }
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartType class >> dataFunction [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartType class >> eventsCode [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #ChartJs }
+{ #category : 'ChartJs' }
 ChartType class >> forChartJS [
 	^ self subclassResponsibility 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartType class >> isFor1DValues [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartType class >> isMultiDataSet [
 	^ false
 ]

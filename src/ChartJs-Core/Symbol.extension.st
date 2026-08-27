@@ -1,6 +1,6 @@
-Extension { #name : #Symbol }
+Extension { #name : 'Symbol' }
 
-{ #category : #'*ChartJs-Core' }
+{ #category : '*ChartJs-Core' }
 Symbol >> chartJsCull: obj cull: obj2 cull: obj3 [
 	^ self cull: obj
 ]

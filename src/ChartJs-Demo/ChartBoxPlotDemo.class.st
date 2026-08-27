@@ -1,20 +1,21 @@
 Class {
-	#name : #ChartBoxPlotDemo,
-	#superclass : #ChartAbstractDemo,
-	#category : #'ChartJs-Demo'
+	#name : 'ChartBoxPlotDemo',
+	#superclass : 'ChartAbstractDemo',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotDemo class >> description [
 	^ 'Boxplot implementation for ChartJs for Seaside.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartBoxPlotDemo class >> title [
 	^ 'Box plot'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartBoxPlotDemo >> renderChartJsComponentOn: html [
 	| chartData chartData2 |
 	chartData := Chart2dData

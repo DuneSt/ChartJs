@@ -1,20 +1,21 @@
 Class {
-	#name : #ChartTooltipsDemo,
-	#superclass : #ChartAbstractDemo,
-	#category : #'ChartJs-Demo'
+	#name : 'ChartTooltipsDemo',
+	#superclass : 'ChartAbstractDemo',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartTooltipsDemo class >> description [
 	^ 'It is possible to tooltips in the charts.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartTooltipsDemo class >> title [
 	^ 'Tooltips'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartTooltipsDemo >> renderChartJsComponentOn: html [
 		| chartData chartData2 |
 	chartData := (Chart1dData values: {('Eating' -> 80). ('Drinking' -> 100). ('Sleeping' -> 70). ('Designing' -> 50). ('Coding' -> 40). ('Cycling' -> 10). ('Running' -> 25)})

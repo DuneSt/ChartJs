@@ -1,6 +1,6 @@
-Extension { #name : #ChartPie }
+Extension { #name : 'ChartPie' }
 
-{ #category : #'*ChartJs-Demo' }
+{ #category : '*ChartJs-Demo' }
 ChartPie class >> displayName [
 	^ 'Pie'
 ]

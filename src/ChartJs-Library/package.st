@@ -1,1 +1,1 @@
-Package { #name : #'ChartJs-Library' }
+Package { #name : 'ChartJs-Library' }

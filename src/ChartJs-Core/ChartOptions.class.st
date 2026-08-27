@@ -2,17 +2,19 @@
 I represent all the options for a chart (scale, axis color...)
 "
 Class {
-	#name : #ChartOptions,
-	#superclass : #Object,
+	#name : 'ChartOptions',
+	#superclass : 'Object',
 	#instVars : [
 		'xAxis',
 		'yAxis',
 		'toolTip'
 	],
-	#category : #'ChartJs-Core-Model'
+	#category : 'ChartJs-Core-Model',
+	#package : 'ChartJs-Core',
+	#tag : 'Model'
 }
 
-{ #category : #converting }
+{ #category : 'converting' }
 ChartOptions >> asDictionary [
 	| optionDictionary |
 	optionDictionary := Dictionary new.
@@ -24,28 +26,28 @@ ChartOptions >> asDictionary [
 	^ optionDictionary
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ChartOptions >> hasToolTip [
 	^ self toolTip notNil
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ChartOptions >> initialize [
 	self xAxis: ChartAxisOptions new.
 	self yAxis: ChartAxisOptions new
 ]
 
-{ #category : #conversion }
+{ #category : 'conversion' }
 ChartOptions >> neoJsonOn: neoJSONWriter [
 	neoJSONWriter writeMap: self asDictionary
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartOptions >> toolTip [
 	^ toolTip
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartOptions >> toolTip: aToolTipBlock [
 	self
 		assert: (aToolTipBlock isBlock and: [ aToolTipBlock numArgs = 2 ])
@@ -53,27 +55,27 @@ ChartOptions >> toolTip: aToolTipBlock [
 	toolTip := aToolTipBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartOptions >> xAxis [
 	^ xAxis
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartOptions >> xAxis: anObject [
 	xAxis := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartOptions >> yAxis [
 	^ yAxis
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartOptions >> yAxis: anObject [
 	yAxis := anObject
 ]
 
-{ #category : #axis }
+{ #category : 'axis' }
 ChartOptions >> yLogarithmicAxis [
 	self yAxis logarithmicScale
 ]

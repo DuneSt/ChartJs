@@ -1,20 +1,21 @@
 Class {
-	#name : #ChartStyleDemo,
-	#superclass : #ChartAbstractDemo,
-	#category : #'ChartJs-Demo'
+	#name : 'ChartStyleDemo',
+	#superclass : 'ChartAbstractDemo',
+	#category : 'ChartJs-Demo',
+	#package : 'ChartJs-Demo'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartStyleDemo class >> description [
 	^ 'It is possible to customize the style of the chart.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ChartStyleDemo class >> title [
 	^ 'Style'
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 ChartStyleDemo >> renderChartJsComponentOn: html [
 	| chartData styleForPersons |
 	chartData := (Chart2dData

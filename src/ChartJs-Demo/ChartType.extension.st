@@ -1,6 +1,6 @@
-Extension { #name : #ChartType }
+Extension { #name : 'ChartType' }
 
-{ #category : #'*ChartJs-Demo' }
+{ #category : '*ChartJs-Demo' }
 ChartType class >> displayName [
 	^ self subclassResponsibility
 ]
